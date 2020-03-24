@@ -42,6 +42,130 @@ it is posible to have multiple syntax highlights at once:
 https://www.vim.org/scripts/script.php?script_id=4168
 
 
+
+
+
+A big thing will be hyper documents and having them able to act as "worktrees".
+E.g. I can have a work tree for a particular project. And all of my projects.
+Etc. (You can have the tree (or network) that you care about in a pane of the
+window)
+Similarly, a common use case might be to be writing something while having a
+reference hyperdocument open at the same time
+
+An important thing will be to be able to embed with specific "views" (e.g.
+kanban) NOTE: will need syntax for that
+
+
+Some common "things"/relationships:
+* description
+* scratch notes
+* summary
+
+
+It may be nice to, after creating scratch notes, to have a peli-pal-like
+interface to be able to move around and organize them. (even in creating
+something like this, that would be handy)
+
+
+Be like leo, where you can insert buttons that attach to python scripts and
+things!
+
+
+Would be useful to have an auto-render/preview functionality
+
+
+the viewer interface is going to be a big deal
+
+
+----
+are tags just based on what "trees" a thing is in? (need to not call it that,
+since they're not necessarily trees) hypertree? Does this make sense?
+So really, every object is the intersection of all its hypertrees, but it also
+needs an ordering within each hypertree? NO. NO ORDERING.
+
+
+...but so, does every random python snippet get added to a "python" hypertree?
+That's not useful or organized. Also too restrictive to require a hyperdocument?
+
+I might want to see "snippets" > "python", but also "python" > "snippets"
+(fixing this might involve that querying idea again) Auto adding to some
+hypertrees might be useful to avoid having to manually select every single tree
+I want it in.
+
+Also, what if I duplicate a hyperdocument view, and just change how it's viewed?
+Do I really make another "tag" for that?
+
+What if something is a resource, but only matters for a particular project? Do I
+really want to pollute "resources" with stuff in my "some project" > "resources"?
+- I think this can be solved by allowing you to do either. You can add to
+  "someproject">"resources" and/or "resources"
+
+
+So I don't think "querying" is necessary, just when a new thing is created and
+needs to be added to another tree, it auto inserts an embedding or reference in
+that other tree. (based on some rules that could be defined somewhere in that
+tree? e.g. in some sections it might just a list of links, in others it might be
+a list of links with a description)
+
+Noooo, but wait, what if I want to add it both to "snippets" and "snippets" >
+"python"? 
+
+I think there just need to be rules, so whenever something gets made, it might
+auto be added to some trees, you might explicitly add it to others (which might
+further trigger additional rules) etc. And this is fine. Maybe in terms of
+display we just prioritize root names and leaf names of hypertrees it's in?
+
+----
+
+
+There can also be arbitrary properties/fields, but should have an interface to
+help determine if existing properties/fields on other objects might be
+applicable
+
+
+
+Have a separate interface that once you create a thing/snippets, you go back
+through and with shortcuts can quickly add the correct tags/add it to the
+correct trees
+
+
+So everything needs to have some sort of a display type
+
+Properties of an object:
+* ID
+* Date created
+* Date updated
+* Default display mode
+* Keywords <---- eehhhh, this is dangerous, shouldn't this be tags then?
+* Name/title
+* Type (markdown,link,pdf,etc?)
+* Edits (count)
+* Description
+* Connections-from (this is essentially where the tags/hypertrees come in)
+* Connections-to
+	^ to capture side-connections, this may just need to be typed connections
+	"parents","children", etc. in a single connections property
+
+NOTE: the above --- thing still does not account for sideways connections. If I
+summarize one or multiple objects, need a way to handle that. It's a typed/named
+connection
+$$$$$$$$ CURRENT CONSIDERATION $$$$$$$$$$$
+(though this is sort of like a bunch of text followed by a bunch of links to
+what it was summarizing...but this isn't doesn't correctly capture the
+relationship, because the sumarizee shouldn't be in the "tree" or a child of the
+summary, it's an updated/cleaned/restated sideways connection
+other than summarizations, what are other sideways connections/non-parent or
+child connections? Explicitly drawing similarities? Attaching a script or button
+or other? Really even a description could be a sideways connection (if we did
+this, we would _not_ want propagation [e.g. if we have a display that pulls in
+descriptions, we don't want that description object to be explicitly connected
+to. So maybe some objects can "propagate" and others can't?])
+Could also have random thoughts about something that I want to attach that
+aren't formal summaries
+
+
+WHAT ABOUT IMAGES?
+
 ## Usecases
 
 ### Making collection of related resources that I'm finding all at once
