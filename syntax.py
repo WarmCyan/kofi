@@ -40,3 +40,19 @@ def get_object(obj_id):
     with open(obj_id, 'r') as infile:
         contents = infile.read()
     return contents[:-1] # ignore the last new line?
+
+
+# TODO: it's possible meta data should never really be in the file itself
+def extract_meta(text):
+    """ Gets all meta data at the top of the object. """
+    lines = text.split("\n")
+
+    meta = {}
+    
+    if lines[0] == "-----":
+        current_line = lines[1]
+        while current_line != "-----":
+            key, value = current_line.split(": ")
+            meta[key] = value
+
+    return meta
