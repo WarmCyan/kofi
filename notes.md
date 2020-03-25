@@ -1,5 +1,13 @@
 # Notes
 
+## Potential libraries
+* urwid
+* ueberzug
+
+* gutentags for vim
+
+* neovim-remote
+
 
 
 Need a "new" script -- creates a new object and opens in editor
@@ -163,8 +171,45 @@ to. So maybe some objects can "propagate" and others can't?])
 Could also have random thoughts about something that I want to attach that
 aren't formal summaries
 
+Ability to add "cleaned nodes" which are nodes for publication/display?
+
 
 WHAT ABOUT IMAGES?
+
+
+
+"display mode" is really like choosing a "renderer"
+So it can be rendered as straight markdown, or as a kanban (where each list is a
+section of the board and each item is a card)
+
+
+
+I really think I may want to focus on using vim _only as the immediate editor_.
+Almost everything else takes place in the visual editor part. So have a joplin
+like setup, where there's two panes, and doing stuff in the one just sends
+commands to the neovim window to edit that particular object. 
+
+the problem is that there should still be a way to export for external editing
+and then an import that pulls it back. Something that inserts special syntax
+that can then be read back in. Maybe doesn't need all the meta data, it just
+needs the object ID, or something similar. So export isn't a "render" per say,
+but something similar. 
+
+So, to be clear, you can make it so you can edit more than one object at a time,
+but it's better for just straight editing the text, rather than manipulating all
+the meta stuff as well.
+
+
+
+I do think a hypergraph is accurate to describe all of this
+
+
+have ability to split left vim pane into multiple so can edit multiple objects
+at once
+
+
+
+ability to "fork" currently 'active' hypergraph/workspace
 
 ## Usecases
 
