@@ -2,6 +2,8 @@
 
 import re
 
+import util
+
 # TODO: add a "resolution depth"?
 def resolve_embeddings(text):
     # find all matching {{{UUID}}} syntax
@@ -20,7 +22,7 @@ def resolve_embeddings(text):
         obj_id = match.groups(0)[0]
 
         # read in the object
-        replacement_text = get_object(obj_id)
+        replacement_text = util.get_object(obj_id)
 
         replacements.append((replacement_text, start, end))
 
@@ -35,11 +37,6 @@ def resolve_embeddings(text):
     return new_text
 
 
-def get_object(obj_id):
-    # TODO: will eventually need to change to "store" or "cache"
-    with open(obj_id, 'r') as infile:
-        contents = infile.read()
-    return contents[:-1] # ignore the last new line?
 
 
 # TODO: it's possible meta data should never really be in the file itself

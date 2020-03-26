@@ -1,4 +1,5 @@
 import argparse
+
 import libtmux
 import urwid
 
@@ -19,6 +20,7 @@ class KofiTUI:
             self.main_loop.screen.register_palette_entry('banner_text', 'black', 'light red')
         if key == 'w':
             self.message.set_text(self.message.text + "\nokay done now")
+            self.make_testbox(self.navigator.current_editing_object)
             self.main_loop.screen.register_palette_entry('banner_text', 'black', 'light blue')
             self.main_loop.screen.clear()
             self.navigator.tmux_nav_pane.select_pane()
@@ -38,6 +40,17 @@ class KofiTUI:
         self.pile = urwid.Filler(urwid.Pile([(1, self.titlebar), self.message]), valign='top')
 
         self.main_loop = urwid.MainLoop(self.pile, self.palette, unhandled_input=self.key_handler)
+
+
+    def make_testbox(self, obj_id):
+        self.filecontent = urwid.Filler(urwid.Text(util.get_object(obj_id)), 'top')
+        self.filetitle = urwid.AttrMap(urwid.Text(obj_id), 'banner_text')
+        self.testbox = urwid.LineBox(urwid.BoxAdapter(urwid.Frame(self.filecontent, self.filetitle), 12))
+        #self.pile.body.contents.append(urwid.Filler(urwid.BoxAdapter(self.testbox, 10), 'top'))
+        #self.pile.body.contents.append((urwid.Filler(urwid.BoxAdapter(self.testbox, 10), 'top'), ('given', 15)))
+
+        self.pile.body.contents.append((urwid.Filler(self.testbox, 'top'), ('given', 15)))
+    
     
     def start(self):
         self.init_tui()
@@ -79,37 +92,6 @@ class KofiTerminalNavigator:
     def start(self):
         self.tui.start()
         
-
-# class ConsoleBox(urwid.Text):
-#     def keypress(self, size, key):
-#         self.text += key
-
-# palette = [
-#     ('banner_text', "black", "light blue"),
-# ]
-
-
- 
-#console = ConsoleBox("hello?")
-# 
-# what = urwid.AttrMap(pile, 'bg')
-        
-
-#lb = urwid.ListBox(urwid.SimpleFocusListWalker([banner_fill, message]))
-
-#mainloop = urwid.MainLoop(what, palette, unhandled_input=key_handler)
-
-
-
-
-
-# thing1 = urwid.Text("hello?")
-# thing2 = urwid.Text("uhhhh?")
-# pile = urwid.Filler(urwid.Pile([thing1, thing2]))
-
-
-# mainloop = urwid.MainLoop(pile, palette, unhandled_input=key_handler)
-# mainloop.run()
 
 
 parser = argparse.ArgumentParser()
