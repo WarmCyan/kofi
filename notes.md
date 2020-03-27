@@ -1,5 +1,10 @@
 # Notes
 
+
+Everything based off of a single "root", anything here is a
+top-level/highest-level thing
+
+
 ## Potential libraries
 * urwid
 * ueberzug
