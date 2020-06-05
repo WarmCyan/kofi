@@ -27,7 +27,7 @@ class KofiTUI:
             )
         if key == "w":
             self.message.set_text(self.message.text + "\nokay done now")
-            #self.make_testbox(self.navigator.current_editing_object)
+            self.make_testbox(self.navigator.current_editing_object)
             finished_obj = self.navigator.manager.get(self.navigator.current_editing_object)
             finished_obj.save()
             finished_obj.load_content()
@@ -85,9 +85,9 @@ class KofiTUI:
             bline="",
             brcorner="",
         )
-        self.pile.body.contents.append(
-            (urwid.Filler(self.testbox, "top"), ("given", 15))
-        )
+        #self.pile.body.contents.append(
+            #(urwid.Filler(self.testbox, "top"), ("given", 15))
+        #)
 
     def start(self):
         self.init_tui()
