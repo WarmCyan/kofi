@@ -1,1 +1,2 @@
-STRT: create date script
+DONE: create date script
+TODO: script or vim thing to create backlink and open in vim

@@ -2,13 +2,13 @@
 
 cache_dir="./testcache/"
 
-stamp=$(date +'%Y%m%d%H%M%S')
+stamp=$(date +'%Y-%m-%d-%H%M%S')
 
 number=0
 
-while [[ -f "$cache_dir/${stamp}_${number}" ]];
+while [[ -f "$cache_dir/${stamp}-${number}.md" ]];
 do
 	number=$((number+1))
 done
 
-echo ${stamp}_${number}
+echo ${stamp}-${number}.md

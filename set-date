@@ -1,0 +1,7 @@
+#!/bin/bash
+
+time=$(date +"%Y-%m-%d")
+
+escaped_time=$(echo $time | sed -e 's/[\/&]/\\&/g')
+
+sed -i "s/^date-$1:\ .*$/date-$1:\ $escaped_time/" $2

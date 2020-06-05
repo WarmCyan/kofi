@@ -360,3 +360,13 @@ surrounding by
 {
 }
 means to create a new object (and replace with embedding)
+
+
+
+
+
+## 2020.6.5 
+
+All reference management should be done with a .bib
+
+https://pypi.org/project/pybib/
