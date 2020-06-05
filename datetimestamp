@@ -1,0 +1,14 @@
+#!/bin/bash
+
+cache_dir="./testcache/"
+
+stamp=$(date +'%Y%m%d%H%M%S')
+
+number=0
+
+while [[ -f "$cache_dir/${stamp}_${number}" ]];
+do
+	number=$((number+1))
+done
+
+echo ${stamp}_${number}

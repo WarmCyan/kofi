@@ -1,0 +1,1 @@
+STRT: create date script
