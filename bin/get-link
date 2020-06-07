@@ -2,7 +2,15 @@
 # takes the name of a file and returns a markdown-syntax to it (grabbing the "name" in the yaml metadata to populate the link")
 
 # assume filename passed in on $1
+# description flag will be at $2
+
 
 name=$(cat $1 | sed -En "2s/name:\ (.*)$/\\1/p")
+desc=$(cat $1 | sed -En "5s/description:\ (.*)$/\\1/p")
 
-echo "[$name]($1)"
+
+if [[ "$2" == "-d" ]]; then
+	echo "[$name]($1) - $desc"
+else
+	echo "[$name]($1)"
+fi
