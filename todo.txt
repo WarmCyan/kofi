@@ -5,3 +5,4 @@ TODO: tool to ls and set zettelkasten
 
 DONE: tool to get link from filename
 DONE: create date script
+TODO: zettelkasten initialization and config setup script
