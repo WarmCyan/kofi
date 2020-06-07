@@ -3,6 +3,5 @@ TODO: script to get text line TOC reference for filename
 TODO: tool to refresh links
 TODO: tool to ls and set zettelkasten
 
-STRT: tool to get link from filename
-
+DONE: tool to get link from filename
 DONE: create date script
