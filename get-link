@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# assume filename passed in on $1
+
+name=$(cat $1 | sed -En "s/name:\ (.*)$/\\1/p")
+
+echo "[$name]($1)"
