@@ -18,7 +18,8 @@ syntax to create new is
 
 <!-- <insert the title you want|2020123.md> -->
 <!-- description (only if the link that was expanded had the description next to
-it) -->
+it) --> Honestly actually no, if you're expanding a note, it's almost certainly
+on a line by itself and could use the description anyway
 <!-- </insert the title you want|2020123.md> --> any changes to title made here
 should be ignored
 

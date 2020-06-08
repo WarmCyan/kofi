@@ -1,0 +1,19 @@
+#!/bin/python3
+
+# key=$1
+# value=$2
+# 
+# sed -i "s/^$key:\ .*$/
+
+import sys
+
+from kofi.note import Note
+
+filename = sys.argv[1]
+key = sys.argv[2]
+value = sys.argv[3]
+
+n = Note()
+n.load(filename)
+n.data[key] = value
+n.write()

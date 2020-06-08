@@ -1,0 +1,71 @@
+#!/bin/python3
+
+"""
+Takes any new note expansion syntax, creates the new notes, and replaces syntax in original file.
+"""
+
+import sys
+import re
+import subprocess
+
+class Note:
+    def __init__(self):
+        self.start_index = 0
+        self.end_index = 0
+        self.title = ""
+        self.tags = []
+        self.description = ""
+        self.filename = ""
+        self.content = []
+
+filename = sys.argv[1]
+
+with open(filename, 'r') as infile:
+    lines = infile.readlines()
+
+
+start_pattern = re.compile("^<!-- <([\w\s]*)|> -->$")
+description_pattern = re.compile("<!-- description: (.*) -->")
+tags_pattern = re.compile("<!-- tags: (.*) -->")
+end_pattern = re.compile("^<!-- </> -->$")
+
+notes = []
+note_stack = []
+
+# parse all the things!
+for index, line in enumerate(lines):
+    # check if we're starting a new note
+    if start_pattern.match(line):
+        new_note = Note()
+        new_note.start_index = index
+
+        # get the name
+        new_note.name = start_pattern.match(line).group(1)
+
+        # add to stack
+        notes.append(new_note)
+        note_stack.append(new_note)
+
+    # check if we found the end of this note
+    elif end_pattern.match(line):
+        note_stack[-1].end_index = index
+        note_stack.pop()
+
+    # check if it's a description line
+    elif description_pattern.match(line):
+        note_stack[-1].description = description_pattern.match(line).group(1)
+        
+    # check if it's a tag line
+    elif tags_pattern.match(line):
+        tags_line = tags_pattern.match(line).group(1)
+        tags = tags_line.split("#")
+        tags = [tag.strip() for tag in tags if tag] # strip empty spaces and any blank tags from split
+        note_stack[-1].tags = tags
+
+    # normal lines of this new note for creation
+    elif len(note_stack) > 0:
+        note_stack[-1].content.append(line)
+
+
+# create each note and write to it
+subprocess.run(["new-note"], stdout=subprocess.PIPE).stdout.decode('utf-8')

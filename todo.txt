@@ -1,4 +1,4 @@
-TODO: [A] script to turn all new-expanded-notes into actual notes and rewrite expander doc
+STRT: [A] script to turn all new-expanded-notes into actual notes and rewrite expander doc
 
 TODO: [B] script to propagate changes to expanded notes
 TODO: [B] script to return expansion syntax of a given filename

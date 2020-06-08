@@ -1,0 +1,37 @@
+#!/bin/python3
+
+"""
+Will replace the content (not the yaml) of the given _existing_ file with what's passed in on stdin.
+"""
+
+import sys
+
+content = sys.stdin.read()
+
+# read in the file
+filename = sys.argv[1]
+
+with open(filename, 'r') as infile:
+    prev_lines = infile.readlines()
+
+# get all yaml lines
+yaml_start = -1
+yaml_end = -1
+for index, line in enumerate(prev_lines):
+    if line == "---\n" and yaml_start == -1:
+        yaml_start = index
+    elif line == "---\n" and yaml_end == -1:
+        yaml_end = index
+    
+yaml_content = str.join("", prev_lines[:yaml_end+1])
+
+if content[0] != "\n":
+    content = "\n" + content
+
+new_content = yaml_content + content
+
+# write it all back out
+# NOTE: at some point maybe this should just return what it'll write?
+with open(filename, 'w') as outfile:
+    outfile.write(new_content)
+#print(new_content)
