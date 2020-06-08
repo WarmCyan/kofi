@@ -55,10 +55,14 @@ markdown files. Separate locally sourced (in zettelkasten folder) vimrc?
 
 
 
+```
 Hint: If you would like to do something else than setting an option, you could
 define an autocommand that checks the file for a specific string.  For
 example:
 	au BufReadPost * if getline(1) =~ "VAR" | call SetVar() | endif
 And define a function SetVar() that does something with the line containing
 "VAR".
+```
 
+
+Sooo check every file for opening <!-- KOFI -->
