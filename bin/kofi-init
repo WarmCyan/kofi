@@ -1,0 +1,28 @@
+#!/bin/bash
+
+echo "Enter your zettelkasten URL"
+echo "(use 'local' if you do not wish to clone it from a remote)"
+read remote
+
+echo "Enter the path to use for your zettelkasten"
+read localpath
+
+echo "Enter a name for the zettelkasten"
+read name
+
+echo "Setting up..."
+if [[ "$remote" == "local" ]]; then
+	git init $localpath
+else
+	git clone $remote $localpath
+fi
+
+# ensure the data directory
+mkdir -p $DATA_DIR/kofi
+mkdir -p $DATA_DIR/kofi/paths
+
+# ensure the list of zettelkastens
+touch $DATA_DIR/kofi/list
+echo $name > $DATA_DIR/kofi/list
+
+echo $localpath > $DATA_DIR/kofi/paths/$name
