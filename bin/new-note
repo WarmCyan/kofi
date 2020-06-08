@@ -8,5 +8,5 @@ cp template $cache_dir/$name
 set-date "created" $cache_dir/$name
 set-date "updated" $cache_dir/$name
 pushd $cache_dir > /dev/null
-nvim "+normal 2GA" $name
+nvim "+normal 4GA" $name
 popd > /dev/null
