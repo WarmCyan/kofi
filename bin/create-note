@@ -1,0 +1,8 @@
+#!/bin/bash
+
+cache_dir=$(active-dir)
+name=$(new-note)
+
+pushd $cache_dir > /dev/null
+nvim "+normal 4GA" $name
+popd > /dev/null

@@ -35,10 +35,14 @@ def read_yaml_metadata(yaml_lines):
 
 def from_tag_string(string):
     """ Returns a tag list. """
+    if string is None:
+        return []
+    
     tags = string.split("#")
     
     # strip empty spaces and any blank tags from split
     tags = [tag.strip() for tag in tags if tag]
+    return tags
 
 
 def to_tag_string(tags):

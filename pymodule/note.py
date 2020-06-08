@@ -13,6 +13,8 @@ class Note:
 
     def load(self, filename):
         """ Load all info from a note from its file """
+
+        self.filename = filename
         with open(self.filename, "r") as infile:
             file_lines = infile.readlines()
 
@@ -26,18 +28,48 @@ class Note:
                 yaml_end = index
 
         yaml_lines = file_lines[yaml_start + 1 : yaml_end]
-        data = util.read_yaml_metadata(yaml_lines)
+        self.data = util.read_yaml_metadata(yaml_lines)
+        self.data["tags"] = util.from_tag_string(self.data["tags"])
 
         # load content
         for line in file_lines[yaml_end + 1 :]:
             self.content += line
 
+    def _yamlline(self, key):
+        value = self.data[key]
+        if key == "tags":
+            value = util.to_tag_string(value)
+        print(key, value)
+
+        if value is None:
+            value = ""
+            
+        returnstring = f"{key}: {value}\n"
+        print(returnstring)
+        return returnstring
+
     # NOTE: assume filename already populated
+    # NOTE: I am not using yaml.dump() because it breaks ordering and adds quotes to strings
     def write(self):
         output = ""
         output += "<!-- KOFI -->\n\n---\n"
 
-        output += str(yaml.dump(self.data, default_flow_style=False))
+        output += self._yamlline("name")
+        output += self._yamlline("date-created")
+        output += self._yamlline("date-updated")
+        output += self._yamlline("description")
+        output += self._yamlline("tags")
+
+        used = ["name", "date-created", "date-updated", "description", "tags"]
+        unused = [x for x in self.data if x not in used]
+        
+        for key in unused:
+            output += self._yamlline(key)
+        #output += str(yaml.dump(self.data, default_style=None, default_flow_style=False))
+
+        
+
+        
         output += "---\n"
         output += "".join(self.content)
 

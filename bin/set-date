@@ -1,6 +1,10 @@
 #!/bin/bash
 
+# usage: set-date [updated|created] [filename]
+
 time=$(date +"%Y-%m-%d")
+
+set-meta $2 "date-$1" $time
 
 # escaped_time=$(echo $time | sed -e 's/[\/&]/\\&/g')
 

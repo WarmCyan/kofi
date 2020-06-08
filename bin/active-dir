@@ -1,0 +1,5 @@
+#!/bin/bash
+
+active_name=$(cat $DATA_DIR/kofi/active)
+active_path=$(cat $DATA_DIR/kofi/paths/$active_name)
+echo $active_path
