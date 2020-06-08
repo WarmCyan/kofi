@@ -39,14 +39,11 @@ class Note:
         value = self.data[key]
         if key == "tags":
             value = util.to_tag_string(value)
-        print(key, value)
-
+            
         if value is None:
             value = ""
             
-        returnstring = f"{key}: {value}\n"
-        print(returnstring)
-        return returnstring
+        return f"{key}: {value}\n"
 
     # NOTE: assume filename already populated
     # NOTE: I am not using yaml.dump() because it breaks ordering and adds quotes to strings
@@ -66,8 +63,6 @@ class Note:
         for key in unused:
             output += self._yamlline(key)
         #output += str(yaml.dump(self.data, default_style=None, default_flow_style=False))
-
-        
 
         
         output += "---\n"

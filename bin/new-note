@@ -9,8 +9,4 @@ tags=$2
 cp $BIN_DIR/kofi/template $cache_dir/$name
 set-date "created" $cache_dir/$name
 set-date "updated" $cache_dir/$name
-#pushd $cache_dir > /dev/null
-#nvim "+normal 4GA" $name
-#popd > /dev/null
 echo $name
-# TODO: this should return the filename rather than open it for editing
