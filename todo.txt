@@ -1,6 +1,4 @@
-TODO: [A] move vim specific things into this repo in separate vim file +vim
 TODO: [A] script to turn all new-expanded-notes into actual notes and rewrite expander doc
-TODO: [A] add vim au bufreadpost to check for kofi comment at beginning of file to load extra vim things +vim
 
 TODO: [B] script to propagate changes to expanded notes
 TODO: [B] script to return expansion syntax of a given filename
@@ -29,3 +27,5 @@ DONE: zettelkasten initialization and config setup script
 DONE: add description to get-link and template and ability to add that to return text
 DONE: tool to get link from filename
 DONE: create date script
+DONE: [A] add vim au bufreadpost to check for kofi comment at beginning of file to load extra vim things +vim
+DONE: [A] move vim specific things into this repo in separate vim file +vim
