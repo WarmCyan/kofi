@@ -2,7 +2,7 @@
 
 cache_dir=$(active-dir)
 
-name=$(datetimestamp)
+name=$(datetimestamp $cache_dir)
 desc=$1
 tags=$2
 

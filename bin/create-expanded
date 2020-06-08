@@ -8,23 +8,15 @@ import sys
 import re
 import subprocess
 
-class Note:
-    def __init__(self):
-        self.start_index = 0
-        self.end_index = 0
-        self.title = ""
-        self.tags = []
-        self.description = ""
-        self.filename = ""
-        self.content = []
+from kofi.note import Note
+from kofi import util
 
 filename = sys.argv[1]
 
 with open(filename, 'r') as infile:
     lines = infile.readlines()
 
-
-start_pattern = re.compile("^<!-- <([\w\s]*)|> -->$")
+start_pattern = re.compile("^<!-- <([\w\s]*)\|> -->$")
 description_pattern = re.compile("<!-- description: (.*) -->")
 tags_pattern = re.compile("<!-- tags: (.*) -->")
 end_pattern = re.compile("^<!-- </> -->$")
@@ -36,31 +28,36 @@ note_stack = []
 for index, line in enumerate(lines):
     # check if we're starting a new note
     if start_pattern.match(line):
+        print("Found a start")
+        print(line)
         new_note = Note()
         new_note.start_index = index
 
         # get the name
-        new_note.name = start_pattern.match(line).group(1)
-
+        new_note.data["name"] = start_pattern.match(line).group(1)
+        new_note.data["date-created"] = ""
+        new_note.data["date-updated"] = ""
+        new_note.data["description"] = ""
+        new_note.data["tags"] = ""
+        
         # add to stack
-        notes.append(new_note)
         note_stack.append(new_note)
 
     # check if we found the end of this note
     elif end_pattern.match(line):
         note_stack[-1].end_index = index
-        note_stack.pop()
+        finished_note = note_stack.pop()
+        notes.append(finished_note)
 
     # check if it's a description line
     elif description_pattern.match(line):
-        note_stack[-1].description = description_pattern.match(line).group(1)
+        note_stack[-1].data["description"] = description_pattern.match(line).group(1)
         
     # check if it's a tag line
     elif tags_pattern.match(line):
         tags_line = tags_pattern.match(line).group(1)
-        tags = tags_line.split("#")
-        tags = [tag.strip() for tag in tags if tag] # strip empty spaces and any blank tags from split
-        note_stack[-1].tags = tags
+        tags = util.from_tag_string(tags_line)
+        note_stack[-1].data["tags"] = tags
 
     # normal lines of this new note for creation
     elif len(note_stack) > 0:
@@ -68,4 +65,17 @@ for index, line in enumerate(lines):
 
 
 # create each note and write to it
-subprocess.run(["new-note"], stdout=subprocess.PIPE).stdout.decode('utf-8')
+for n in notes:
+    #name = subprocess.run(["new-note"], shell=True, stdout=subprocess.PIPE).stdout.decode('ascii')
+    name = subprocess.run(["new-note"], stdout=subprocess.PIPE).stdout.decode('ascii').rstrip()
+
+    # load from that new filename just so we get the date stuff
+    created_note = Note()
+    created_note.load(name)
+    
+    # NOTE: I realize this is just weird, but it works, we have a separate ""note object"" that is the existing one and we just manually merge the stuff we need, and write from the new note
+    n.data["date-created"] = created_note.data["date-created"]
+    n.data["date-updated"] = created_note.data["date-updated"]
+    
+    n.filename = name
+    n.write()
