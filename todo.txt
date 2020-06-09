@@ -1,7 +1,6 @@
 WAIT: [A] log everything
 WAIT: most of these scripts taking filenames need to also read active-dir
 
-TODO: [C] vim on-write functionality (add set-date) +vim
 TODO: [C] script to check if backlink to file from given exists
 TODO: [C] script to insert backlink to file
 
@@ -39,3 +38,5 @@ DONE: [B] script to return expansion syntax of a given filename
 DONE: [B] vim shortcut to utilize script to get expansion of filename +vim
 DONE: [B] script to fold expanded syntax
 DONE: [B] vim shortcut to utilize script to fold expanded syntax +vim
+DONE: [C] vim on-write functionality (add set-date) +vim
+

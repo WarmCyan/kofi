@@ -17,3 +17,4 @@ nnoremap <leader>n i<!-- <lt><Bar>> --><cr><cr><!-- <lt>/> --><esc>kk0f<Bar>i
 nmap <c-e> V:'<,'>!get-expansion<cr>
 nmap <c-d> :silent exec "!fold-expansion " . expand('%:t') . " " . line('.')<cr>:edit<cr>
 
+autocmd BufWritePost *.md :silent exec "!process-write " . expand('%:t') | :edit
