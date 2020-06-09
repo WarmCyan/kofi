@@ -1,0 +1,48 @@
+#!/bin/python3
+
+""" Find all links in file and refresh the text (title, desc, etc.) """
+
+import sys
+import re
+
+from kofi.note import Note
+from kofi import util
+
+filename=sys.argv[1]
+
+n = Note()
+n.load(filename)
+
+# loop through all content lines
+standalone_link_pattern = re.compile("(\[.*\]\((.*)\)\s\-.*)")
+link_pattern = re.compile(".*(\[.*\]\((.*)\)).*")
+start_pattern = re.compile("^<!-- <([\w\d\s\-\_]*)\|(.+)> -->$")
+end_pattern = re.compile("^<!-- </([\w\d\s\-\_]*)\|(.+)> -->$")
+
+for index, line in enumerate(n.content):
+    if standalone_link_pattern.match(line):
+        match = standalone_link_pattern.match(line)
+        filename = match.group(2)
+        new_link = util.run_shell("get-link", filename, "-d")
+        line = line.replace(match.group(1), new_link)
+        n.content[index] = line
+    elif link_pattern.match(line):
+        match = link_pattern.match(line)
+        filename = match.group(2)
+        new_link = util.run_shell("get-link", filename)
+        line = line.replace(match.group(1), new_link)
+        n.content[index] = line
+    elif start_pattern.match(line):
+        filename = start_pattern.match(line).group(2)
+        inner_note = Note()
+        inner_note.load(filename)
+        line = f"<!-- <{inner_note.data['name']}|{filename}> -->\n"
+        n.content[index] = line
+    elif end_pattern.match(line):
+        filename = end_pattern.match(line).group(2)
+        inner_note = Note()
+        inner_note.load(filename)
+        line = f"<!-- </{inner_note.data['name']}|{filename}> -->\n"
+        n.content[index] = line
+
+n.write()

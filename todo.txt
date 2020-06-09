@@ -1,18 +1,16 @@
 WAIT: [A] log everything
 WAIT: most of these scripts taking filenames need to also read active-dir
+WAIT: command to copy/make a copy of a note (automatically create link/backlink)
 
-TODO: vim shortcut c-L to get description line +vim
-TODO: vim thing to directly call get-link on md filename (expand) +vim
-TODO: vim copy filename +vim
-TODO: script to update/refresh all link titles (expanded and non)
+TODO: [A] script to add to recent list
+
+STRT: refresh expansions (in case the note itself had been changed)
+
 TODO: determine other todos for searches, reference management, and inbox and workspace management
-TODO: shortcut to move cursor to filename in next link +vim
-
 TODO: command to open/edit inbox
 TODO: command to open/edit workspaces(?)
 
-TODO: command to copy/make a copy of a note (automatically create link/backlink)
-
+TODO: make zettelkasten notes go into separate folder
 
 WAIT: tool to ls and set zettelkasten
 WAIT: python pandoc filter to change markdown links into html links +render
@@ -20,6 +18,11 @@ WAIT: html/css template +render
 WAIT: script to run pandoc render +render
 WAIT: script to start server +render
 WAIT: script to fzf search and then open in browser +render
+
+WAIT: vim shortcut c-L to get description line +vim
+WAIT: vim thing to directly call get-link on md filename (expand) +vim
+WAIT: vim copy filename +vim
+WAIT: shortcut to move cursor to filename in next link +vim
 
 DONE: script to get text line TOC reference for filename
 DONE: zettelkasten initialization and config setup script
@@ -39,3 +42,4 @@ DONE: [C] vim on-write functionality (add set-date) +vim
 DONE: [C] script to check if backlink to file from given exists
 DONE: [C] script to insert backlink to file
 DONE: [D] vim thing to create backlink and open in vim +vim
+DONE: script to update/refresh all link titles (expanded and non)

@@ -2,6 +2,8 @@
 
 import yaml
 
+import subprocess
+
 
 def get_meta_data(path):
     """ Get all yaml config data in the top '---' pandoc block at the top of the markdown file. """
@@ -52,3 +54,8 @@ def to_tag_string(tags):
         line += "#" + tag
 
     return line.strip()
+
+
+def run_shell(*args):
+    output = subprocess.run(args, stdout=subprocess.PIPE).stdout.decode('ascii').rstrip()
+    return output

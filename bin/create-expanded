@@ -67,7 +67,8 @@ for index, line in enumerate(lines):
 # create each note and write to it
 for n in notes:
     #name = subprocess.run(["new-note"], shell=True, stdout=subprocess.PIPE).stdout.decode('ascii')
-    name = subprocess.run(["new-note"], stdout=subprocess.PIPE).stdout.decode('ascii').rstrip()
+    #name = subprocess.run(["new-note"], stdout=subprocess.PIPE).stdout.decode('ascii').rstrip()
+    name = util.run_shell("new-note")
 
     # load from that new filename just so we get the date stuff
     created_note = Note()

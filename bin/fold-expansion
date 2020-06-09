@@ -7,6 +7,7 @@ import subprocess
 from datetime import date
 
 from kofi.note import Note
+from kofi import util
 
 filename = sys.argv[1]
 cursorline = sys.argv[2]
@@ -40,7 +41,8 @@ if start_index == -1 or end_index == -1:
 
 output = lines[0:start_index]
 
-link = subprocess.run(["get-link", folding_filename, "-d"], stdout=subprocess.PIPE).stdout.decode('ascii').rstrip()
+#link = subprocess.run(["get-link", folding_filename, "-d"], stdout=subprocess.PIPE).stdout.decode('ascii').rstrip()
+link = util.run_shell("get-link", folding_filename, "-d")
 output.append(link)
 output.extend(lines[end_index+1:])
 
