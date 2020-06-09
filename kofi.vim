@@ -4,7 +4,7 @@ function! KofiGetLink(lines)
 	let fulllink = system("get-link " . filename)
 	return fulllink
 endfunction
-	
+
 inoremap <expr> <C-l> fzf#vim#complete(fzf#wrap({
 			\ 'prefix': expand("<cword>"),
 			\ 'source': 'rg ^ --line-number --glob "*.md"',
@@ -15,3 +15,5 @@ inoremap <expr> <C-l> fzf#vim#complete(fzf#wrap({
 nnoremap <leader>n i<!-- <lt><Bar>> --><cr><cr><!-- <lt>/> --><esc>kk0f<Bar>i
 
 nmap <c-e> V:'<,'>!get-expansion<cr>
+nmap <c-d> :silent exec "!fold-expansion " . expand('%:t') . " " . line('.')<cr>:edit<cr>
+

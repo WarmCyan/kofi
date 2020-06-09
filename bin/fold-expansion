@@ -23,7 +23,7 @@ end_index = -1
 folding_filename = ""
 
 # find the previous opening
-for i in range(int(cursorline), 0, -1):
+for i in range(int(cursorline), 1, -1):
     if start_pattern.match(lines[i]):
         start_index = i
         folding_filename = start_pattern.match(lines[i]).group(2)
