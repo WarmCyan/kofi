@@ -1,7 +1,6 @@
 WAIT: [A] log everything
 
-TODO: [B] script to fold expanded syntax
-TODO: [B] vim shortcut to utilize script to fold expanded syntax +vim
+STRT: [B] vim shortcut to utilize script to fold expanded syntax +vim
 
 TODO: [!!!] most of these scripts taking filenames need to also read active-dir
 
@@ -36,3 +35,4 @@ DONE: shortcut in vim to add new-expanded-note syntax +vim
 DONE: [B] script to propagate changes to expanded notes
 DONE: [B] script to return expansion syntax of a given filename
 DONE: [B] vim shortcut to utilize script to get expansion of filename +vim
+DONE: [B] script to fold expanded syntax

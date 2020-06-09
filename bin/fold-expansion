@@ -1,0 +1,48 @@
+#!/bin/python3
+
+import sys
+import re
+import subprocess
+
+from datetime import date
+
+from kofi.note import Note
+
+filename = sys.argv[1]
+cursorline = sys.argv[2]
+
+with open(filename, 'r') as infile:
+    lines = infile.readlines()
+    
+    
+start_pattern = re.compile("^<!-- <([\w\d\s\-\_]*)\|(.+)> -->$")
+end_pattern = re.compile("^<!-- </([\w\d\s\-\_]*)\|(.+)> -->$")
+
+start_index = -1
+end_index = -1
+folding_filename = ""
+
+# find the previous opening
+for i in range(int(cursorline), 0, -1):
+    if start_pattern.match(lines[i]):
+        start_index = i
+        folding_filename = start_pattern.match(lines[i]).group(2)
+        break
+
+for i in range(int(cursorline), len(lines)):
+    if end_pattern.match(lines[i]) and end_pattern.match(lines[i]).group(2) == folding_filename:
+        end_index = i
+        break
+
+if start_index == -1 or end_index == -1:
+    print("ERROR")
+    exit()
+
+output = lines[0:start_index]
+
+link = subprocess.run(["get-link", folding_filename, "-d"], stdout=subprocess.PIPE).stdout.decode('ascii').rstrip()
+output.append(link)
+output.extend(lines[end_index+1:])
+
+with open(filename, 'w') as outfile:
+    outfile.writelines(output)

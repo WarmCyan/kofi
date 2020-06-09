@@ -13,7 +13,7 @@ with open(filename, 'r') as infile:
     lines = infile.readlines()
 
 start_pattern = re.compile("^<!-- <([\w\d\s\-\_]*)\|(.+)> -->$")
-end_pattern = re.compile("^<!-- </([\w\d\s\-\_]*)|(.+)> -->$")
+end_pattern = re.compile("^<!-- </([\w\d\s\-\_]*)\|(.+)> -->$")
 
 notes = [] # NOTE: at some point if we want to refresh titles, we could do it at the end of this script
 note_stack = []
