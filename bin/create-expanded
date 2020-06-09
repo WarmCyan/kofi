@@ -44,17 +44,17 @@ for index, line in enumerate(lines):
         note_stack.append(new_note)
 
     # check if we found the end of this note
-    elif end_pattern.match(line):
+    elif end_pattern.match(line) and len(note_stack) > 0:
         note_stack[-1].end_index = index
         finished_note = note_stack.pop()
         notes.append(finished_note)
 
     # check if it's a description line
-    elif description_pattern.match(line):
+    elif description_pattern.match(line) and len(note_stack) > 0:
         note_stack[-1].data["description"] = description_pattern.match(line).group(1)
         
     # check if it's a tag line
-    elif tags_pattern.match(line):
+    elif tags_pattern.match(line) and len(note_stack) > 0:
         tags_line = tags_pattern.match(line).group(1)
         tags = util.from_tag_string(tags_line)
         note_stack[-1].data["tags"] = tags
@@ -79,3 +79,17 @@ for n in notes:
     
     n.filename = name
     n.write()
+
+# replace each note expansion with proper syntax
+for n in notes:
+    start_line = lines[n.start_index]
+
+    name_replace = n.data["name"]
+    filename_replace = n.filename
+
+    lines[n.start_index] = f"<!-- <[{name_replace}]({filename_replace})> -->\n"
+    lines[n.end_index] = f"<!-- </[{name_replace}]({filename_replace})> -->\n"
+    
+# write it back out!
+with open(filename, 'w') as outfile:
+    outfile.writelines(lines)
