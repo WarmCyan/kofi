@@ -1,6 +1,5 @@
 WAIT: [A] log everything
-
-TODO: [!!!] most of these scripts taking filenames need to also read active-dir
+WAIT: most of these scripts taking filenames need to also read active-dir
 
 TODO: [C] vim on-write functionality (add set-date) +vim
 TODO: [C] script to check if backlink to file from given exists
@@ -15,11 +14,16 @@ TODO: script to update/refresh all link titles (expanded and non)
 TODO: determine other todos for searches, reference management, and inbox and workspace management
 
 
+TODO: command to open/edit inbox
+TODO: command to open/edit workspaces(?)
+
+
 WAIT: tool to ls and set zettelkasten
 WAIT: python pandoc filter to change markdown links into html links +render
 WAIT: html/css template +render
 WAIT: script to run pandoc render +render
 WAIT: script to start server +render
+WAIT: script to fzf search and then open in browser +render
 
 DONE: script to get text line TOC reference for filename
 DONE: zettelkasten initialization and config setup script
