@@ -3,14 +3,13 @@ WAIT: most of these scripts taking filenames need to also read active-dir
 WAIT: command to copy/make a copy of a note (automatically create link/backlink)
 
 TODO: [A] script to add to recent list
-
 TODO: :kofinew vim command (simply calls new-note) +vim
-
-TODO: inbox class
+STRT: inbox class
 
 TODO: determine other todos for searches, reference management, and inbox and workspace management
 TODO: command to open/edit inbox
 TODO: command to open/edit workspaces(?)
+TODO: determine todos for script execution
 
 TODO: make zettelkasten notes go into separate folder
 
