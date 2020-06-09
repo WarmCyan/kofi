@@ -33,7 +33,7 @@ class Note:
 
         # load content
         for line in file_lines[yaml_end + 1 :]:
-            self.content += line
+            self.content.append(line)
 
     def _yamlline(self, key):
         value = self.data[key]

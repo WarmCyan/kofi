@@ -1,0 +1,51 @@
+#!/bin/python3
+
+import sys
+import re
+
+from datetime import date
+
+from kofi.note import Note
+
+filename = sys.argv[1]
+
+with open(filename, 'r') as infile:
+    lines = infile.readlines()
+
+start_pattern = re.compile("^<!-- <([\w\d\s\-\_]*)\|(.+)> -->$")
+end_pattern = re.compile("^<!-- </([\w\d\s\-\_]*)|(.+)> -->$")
+
+notes = [] # NOTE: at some point if we want to refresh titles, we could do it at the end of this script
+note_stack = []
+
+# parse all the things!
+for index, line in enumerate(lines):
+    # check if we're starting a new note
+    if start_pattern.match(line):
+        print("Found",line)
+        new_note = Note()
+
+        match = start_pattern.match(line)
+        new_note.load(match.group(2))
+
+        # TODO: keep track of what changes there are
+        new_note.content_building = [] # use this to check for changes?
+
+        # add it to stack
+        note_stack.append(new_note)
+    
+    # check if we found the end of this note
+    elif end_pattern.match(line):
+        finished_note = note_stack.pop()
+
+        if finished_note.content == finished_note.content_building:
+            # skip it, no changes necessary
+            pass
+        else:
+            finished_note.content = finished_note.content_building
+            finished_note.data["date-updated"] = date.today().strftime("%Y-%m-%d")
+            finished_note.write()
+
+    # normal lines of this new note for creation
+    elif len(note_stack) > 0:
+        note_stack[-1].content_building.append(line)

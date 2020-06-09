@@ -1,10 +1,16 @@
-TODO: [B] script to propagate changes to expanded notes
+WAIT: [A] log everything
+
+STRT: [B] script to propagate changes to expanded notes
 TODO: [B] script to return expansion syntax of a given filename
 TODO: [B] vim shortcut to utilize script to get expansion of filename +vim
 TODO: [B] script to fold expanded syntax
 TODO: [B] vim shortcut to utilize script to fold expanded syntax +vim
 
 TODO: [C] vim on-write functionality (add set-date) +vim
+TODO: [C] script to check if backlink to file from given exists
+TODO: [C] script to insert backlink to file
+
+TODO: [D] vim thing to create backlink and open in vim +vim
 
 TODO: vim shortcut c-L to get description line +vim
 TODO: vim thing to directly call get-link on md filename (expand) +vim
@@ -12,8 +18,8 @@ TODO: vim copy filename +vim
 TODO: script to update/refresh all link titles (expanded and non)
 TODO: determine other todos for searches, reference management, and inbox and workspace management
 
+
 WAIT: tool to ls and set zettelkasten
-WAIT: script or vim thing to create backlink and open in vim +vim
 WAIT: python pandoc filter to change markdown links into html links +render
 WAIT: html/css template +render
 WAIT: script to run pandoc render +render

@@ -33,8 +33,8 @@ given, just de-expand all]
 
 
 need a thing to handle on-save of a file in vim?:
-* create any new expanded files
 * apply changes to any expanded files
+* create any new expanded files
 * render (if this is implemented yet)
 * refresh link titles
 * update date-updated

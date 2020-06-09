@@ -16,7 +16,7 @@ filename = sys.argv[1]
 with open(filename, 'r') as infile:
     lines = infile.readlines()
 
-start_pattern = re.compile("^<!-- <([\w\s]*)\|> -->$")
+start_pattern = re.compile("^<!-- <([\w\d\s\-\_]*)\|> -->$")
 description_pattern = re.compile("<!-- description: (.*) -->")
 tags_pattern = re.compile("<!-- tags: (.*) -->")
 end_pattern = re.compile("^<!-- </> -->$")
