@@ -1,0 +1,33 @@
+#!/bin/python3
+
+import sys
+import re
+
+from kofi.note import Note
+
+link_pattern = re.compile("\[.*\]\((.*)\)")
+
+filename = None
+
+if len(sys.argv) > 1:
+    filename = sys.argv[1]
+else:
+    lines = []
+    for line in sys.stdin:
+        lines.append(line.rstrip())
+
+    # NOTE: assuming we're just on the right line, shouldn't be being passed more than one
+
+    if link_pattern.match(lines[0]):
+        filename = link_pattern.match(lines[0]).group(1)
+        
+n = Note()
+n.load(filename)
+
+name = n.data["name"]
+
+output = f"<!-- <{name}|{filename}> -->\n"
+output += "".join(n.content)
+output += f"<!-- </{name}|{filename}> -->\n"
+
+print(output)

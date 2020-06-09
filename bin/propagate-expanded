@@ -22,7 +22,6 @@ note_stack = []
 for index, line in enumerate(lines):
     # check if we're starting a new note
     if start_pattern.match(line):
-        print("Found",line)
         new_note = Note()
 
         match = start_pattern.match(line)
