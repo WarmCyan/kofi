@@ -9,6 +9,7 @@ if [[ "$result" == "no backlink" ]]; then
 	backlink_text="$(get-link $current_file){.back}"
 	echo -e "\n$backlink_text" >> $dest_file
 	set-date "updated" $dest_file
+	echo "backlink created"
 else
 	echo $result
 fi

@@ -1,14 +1,12 @@
 WAIT: [A] log everything
 WAIT: most of these scripts taking filenames need to also read active-dir
 
-STRT: [D] vim thing to create backlink and open in vim +vim
-
 TODO: vim shortcut c-L to get description line +vim
 TODO: vim thing to directly call get-link on md filename (expand) +vim
 TODO: vim copy filename +vim
 TODO: script to update/refresh all link titles (expanded and non)
 TODO: determine other todos for searches, reference management, and inbox and workspace management
-
+TODO: shortcut to move cursor to filename in next link +vim
 
 TODO: command to open/edit inbox
 TODO: command to open/edit workspaces(?)
@@ -40,3 +38,4 @@ DONE: [B] vim shortcut to utilize script to fold expanded syntax +vim
 DONE: [C] vim on-write functionality (add set-date) +vim
 DONE: [C] script to check if backlink to file from given exists
 DONE: [C] script to insert backlink to file
+DONE: [D] vim thing to create backlink and open in vim +vim
