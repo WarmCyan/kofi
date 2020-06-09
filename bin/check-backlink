@@ -1,0 +1,13 @@
+#!/bin/bash
+
+current_file=$1
+check_file=$2
+
+current_file_clean=$(echo $current_file | sed -e 's/[\/&]/\\&/g')
+
+if grep -Eq "\[.*\]\($current_file_clean\)\{.*\.back.*\}" $check_file
+then
+	echo "backlink exists"
+else
+	echo "no backlink"
+fi
