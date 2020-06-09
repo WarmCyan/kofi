@@ -23,13 +23,13 @@ end_pattern = re.compile("^<!-- </> -->$")
 
 notes = []
 note_stack = []
+new_note_found = False # flag for if we need to reload original or not
 
 # parse all the things!
 for index, line in enumerate(lines):
     # check if we're starting a new note
     if start_pattern.match(line):
-        print("Found a start")
-        print(line)
+        new_note_found = True
         new_note = Note()
         new_note.start_index = index
 
@@ -80,16 +80,17 @@ for n in notes:
     n.filename = name
     n.write()
 
-# replace each note expansion with proper syntax
-for n in notes:
-    start_line = lines[n.start_index]
+if new_note_found:
+    # replace each note expansion with proper syntax
+    for n in notes:
+        start_line = lines[n.start_index]
 
-    name_replace = n.data["name"]
-    filename_replace = n.filename
+        name_replace = n.data["name"]
+        filename_replace = n.filename
 
-    lines[n.start_index] = f"<!-- <[{name_replace}]({filename_replace})> -->\n"
-    lines[n.end_index] = f"<!-- </[{name_replace}]({filename_replace})> -->\n"
-    
-# write it back out!
-with open(filename, 'w') as outfile:
-    outfile.writelines(lines)
+        lines[n.start_index] = f"<!-- <{name_replace}|{filename_replace}> -->\n"
+        lines[n.end_index] = f"<!-- </{name_replace}|{filename_replace}> -->\n"
+        
+    # write it back out!
+    with open(filename, 'w') as outfile:
+        outfile.writelines(lines)
