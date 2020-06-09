@@ -1,5 +1,3 @@
-STRT: [A] script to turn all new-expanded-notes into actual notes and rewrite expander doc
-
 TODO: [B] script to propagate changes to expanded notes
 TODO: [B] script to return expansion syntax of a given filename
 TODO: [B] vim shortcut to utilize script to get expansion of filename +vim
@@ -11,7 +9,6 @@ TODO: [C] vim on-write functionality (add set-date) +vim
 TODO: vim shortcut c-L to get description line +vim
 TODO: vim thing to directly call get-link on md filename (expand) +vim
 TODO: vim copy filename +vim
-TODO: shortcut in vim to add new-expanded-note syntax +vim
 TODO: script to update/refresh all link titles (expanded and non)
 TODO: determine other todos for searches, reference management, and inbox and workspace management
 
@@ -29,3 +26,5 @@ DONE: tool to get link from filename
 DONE: create date script
 DONE: [A] add vim au bufreadpost to check for kofi comment at beginning of file to load extra vim things +vim
 DONE: [A] move vim specific things into this repo in separate vim file +vim
+DONE: [A] script to turn all new-expanded-notes into actual notes and rewrite expander doc
+DONE: shortcut in vim to add new-expanded-note syntax +vim

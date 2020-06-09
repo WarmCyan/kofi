@@ -10,3 +10,6 @@ inoremap <expr> <C-l> fzf#vim#complete(fzf#wrap({
 			\ 'source': 'rg ^ --line-number --glob "*.md"',
 			\ 'options': '',
 			\ 'reducer': { lines -> KofiGetLink(lines) }}))
+
+
+nnoremap <leader>n i<!-- <lt><Bar>> --><cr><cr><!-- <lt>/> --><esc>kk0f<Bar>i
