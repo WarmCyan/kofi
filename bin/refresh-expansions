@@ -1,0 +1,41 @@
+#!/bin/python3
+
+""" Find all expansions in file and refresh the text """
+
+import sys
+import re
+
+from kofi.note import Note
+from kofi import util
+
+filename=sys.argv[1]
+
+n = Note()
+n.load(filename)
+
+# loop through all content lines
+start_pattern = re.compile("^<!-- <([\w\d\s\-\_]*)\|(.+)> -->$")
+end_pattern = re.compile("^<!-- </([\w\d\s\-\_]*)\|(.+)> -->$")
+
+note_stack = []
+
+new_content = []
+
+# parse all the things!
+for index, line in enumerate(n.content):
+    if start_pattern.match(line):
+        inner_note = Note()
+        inner_note.start_index = index
+        inner_note.filename = start_pattern.match(line).group(2)
+        note_stack.append(inner_note)
+        
+    # check if we found the end of this note
+    elif end_pattern.match(line):
+        finished_note = note_stack.pop()
+
+        new_content.append(util.run_shell("get-expansion", finished_note.filename))
+    elif len(note_stack) == 0:
+        new_content.append(line)
+
+n.content = new_content
+n.write()

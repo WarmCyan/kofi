@@ -4,7 +4,10 @@ WAIT: command to copy/make a copy of a note (automatically create link/backlink)
 
 TODO: [A] script to add to recent list
 
-STRT: refresh expansions (in case the note itself had been changed)
+STRT: vim buffer enter refresh expansions +vim
+TODO: :kofinew vim command (simply calls new-note) +vim
+
+TODO: inbox class
 
 TODO: determine other todos for searches, reference management, and inbox and workspace management
 TODO: command to open/edit inbox
@@ -43,3 +46,4 @@ DONE: [C] script to check if backlink to file from given exists
 DONE: [C] script to insert backlink to file
 DONE: [D] vim thing to create backlink and open in vim +vim
 DONE: script to update/refresh all link titles (expanded and non)
+DONE: refresh expansions (in case the note itself had been changed)
