@@ -1,7 +1,5 @@
 WAIT: [A] log everything
 
-STRT: [B] script to return expansion syntax of a given filename
-TODO: [B] vim shortcut to utilize script to get expansion of filename +vim
 TODO: [B] script to fold expanded syntax
 TODO: [B] vim shortcut to utilize script to fold expanded syntax +vim
 
@@ -36,3 +34,5 @@ DONE: [A] move vim specific things into this repo in separate vim file +vim
 DONE: [A] script to turn all new-expanded-notes into actual notes and rewrite expander doc
 DONE: shortcut in vim to add new-expanded-note syntax +vim
 DONE: [B] script to propagate changes to expanded notes
+DONE: [B] script to return expansion syntax of a given filename
+DONE: [B] vim shortcut to utilize script to get expansion of filename +vim

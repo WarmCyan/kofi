@@ -13,3 +13,5 @@ inoremap <expr> <C-l> fzf#vim#complete(fzf#wrap({
 
 
 nnoremap <leader>n i<!-- <lt><Bar>> --><cr><cr><!-- <lt>/> --><esc>kk0f<Bar>i
+
+nmap <c-e> V:'<,'>!get-expansion<cr>

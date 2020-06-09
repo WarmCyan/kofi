@@ -28,6 +28,6 @@ name = n.data["name"]
 
 output = f"<!-- <{name}|{filename}> -->\n"
 output += "".join(n.content)
-output += f"<!-- </{name}|{filename}> -->\n"
+output += f"<!-- </{name}|{filename}> -->"
 
 print(output)
