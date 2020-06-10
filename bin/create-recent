@@ -1,0 +1,41 @@
+#!/bin/python3
+
+""" Updates (or creates if non-existing) the recent note """
+
+import json
+import os.path
+import sys
+
+from datetime import date
+
+from kofi import util
+from kofi.note import Note
+
+active_dir = util.run_shell("active-dir")
+os.chdir(active_dir)
+path = "recent_list.json"
+recent = []
+if os.path.exists(path):
+    with open(path, 'r') as infile:
+        recent = json.load(infile)
+
+n_recent = Note()
+if os.path.exists("recent.md"):
+    n_recent.load("recent.md")
+else:
+    n_recent.data["name"] = "Recent Notes"
+    n_recent.data["date-created"] = date.today().strftime("%Y-%m-%d")
+    n_recent.data["date-updated"] = date.today().strftime("%Y-%m-%d")
+    n_recent.data["description"] = "List of recent notes"
+    n_recent.data["tags"] = ""
+    n_recent.filename = "recent.md"
+
+content = ["# Recent Notes\n\n"]
+
+for note in recent:
+    link = util.run_shell("get-link", note, "-d") + "\n\n"
+    content.append(link)
+
+n_recent.content = content
+
+n_recent.write()

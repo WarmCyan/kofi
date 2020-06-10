@@ -1,0 +1,10 @@
+#!/bin/bash
+
+filename=$1
+outname=$(echo $filename | sed "s/\.md$/\.html/")
+
+#pushd $(active-dir) > /dev/null
+
+pandoc -i $filename -o render/$outname
+
+#popd > /dev/null

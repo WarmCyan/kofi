@@ -1,0 +1,10 @@
+INPUTS := $(wildcard *.md)
+TARGETS := $(patsubst %.md,render/%.html,$(notdir $(INPUTS)))
+
+all: $(TARGETS)
+
+render/%.html: %.md | render
+	@render $<
+
+render:
+	@mkdir -p render

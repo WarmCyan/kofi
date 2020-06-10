@@ -1,0 +1,27 @@
+#!/bin/python
+
+""" Adds the passed filename to the top of the recent list """
+
+import json
+import os.path
+import sys
+
+from kofi import util
+
+new_filename=sys.argv[1]
+
+path = util.run_shell("active-dir") + "/recent_list.json"
+
+recent = []
+
+if os.path.exists(path):
+    with open(path, 'r') as infile:
+        recent = json.load(infile)
+
+if new_filename in recent:
+    recent.remove(new_filename)
+
+recent.insert(0, new_filename)
+
+with open(path, 'w') as outfile:
+    json.dump(recent, outfile)

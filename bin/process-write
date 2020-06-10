@@ -7,3 +7,4 @@ create-expanded $filename
 # TODO: refresh titles
 set-date "updated" $filename
 # TODO: render
+set-recent $filename

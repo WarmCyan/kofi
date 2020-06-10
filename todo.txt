@@ -13,10 +13,14 @@ TODO: determine todos for script execution
 
 TODO: make zettelkasten notes go into separate folder
 
+TODO: [A] render makefile
+TODO: [A] copy makefile on zettelkasten init
+TODO: [A] add makefile to tools setup
+
 WAIT: tool to ls and set zettelkasten
 WAIT: python pandoc filter to change markdown links into html links +render
 WAIT: html/css template +render
-WAIT: script to run pandoc render +render
+STRT: script to run pandoc render +render
 WAIT: script to start server +render
 WAIT: script to fzf search and then open in browser +render
 
