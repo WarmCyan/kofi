@@ -8,3 +8,4 @@ create-expanded $filename
 set-date "updated" $filename
 # TODO: render
 set-recent $filename
+nohup background-process-write $filename &

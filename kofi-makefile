@@ -7,7 +7,7 @@ rendered/%.html: %.md | rendered
 	@render $<
 
 rendered:
-	@mkdir -p render
+	@mkdir -p rendered
 
 clean:
 	rm rendered/*

@@ -22,7 +22,7 @@ nnoremap <leader>n i<!-- <lt><Bar>> --><cr><cr><!-- <lt>/> --><esc>kk0f<Bar>i
 " NOTE: below get-expansion could also get filename under cursor with expand("<cfile>")
 " though this isn't as good since you can't run from beginning of line
 nmap <c-e> V:'<,'>!get-expansion<cr>
-nmap <c-d> :silent exec "!fold-expansion " . expand('%:t') . " " . line('.')<cr>:edit<cr>
+nmap <c-d> :silent exec "!fold-expansion " . expand('%:t') . " " . line('.')<cr>:edit!<cr>
 
 autocmd BufWritePost *.md :silent exec "!process-write " . expand('%:t') | :edit
 
@@ -66,4 +66,8 @@ function! SearchInRange(pattern, start_line, end_line)
     return search_result ? 1 : 0
 endfunction
 
-autocmd BufEnter *.md if SearchInRange("<!-- <", 0, line('$')) | :silent exec "!refresh-expansions " . expand('%:t')
+" NOTE: commenting this out because refresh-expansions breaks the link
+" completion stuff (because that's entering a buffer)
+" autocmd BufEnter *.md if SearchInRange("<!-- <", 0, line('$')) | :silent exec "!refresh-expansions " . expand('%:t')
+
+nmap <leader>r :silent exec "!refresh-expansions " . expand('%:t')<cr>

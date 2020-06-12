@@ -20,6 +20,11 @@ note_stack = []
 
 # parse all the things!
 for index, line in enumerate(lines):
+    # add every line to every _previous_ note in the stack
+    # NOTE: if we don't do this, expansion/folding/re-expansion removes stuff/messes up the propagated notes permanently
+    for subnote in note_stack[:-1]:
+        subnote.content_building.append(line)
+    
     # check if we're starting a new note
     if start_pattern.match(line):
         new_note = Note()
@@ -48,3 +53,6 @@ for index, line in enumerate(lines):
     # normal lines of this new note for creation
     elif len(note_stack) > 0:
         note_stack[-1].content_building.append(line)
+
+
+# TODO: add content from any sub NOTE: to every previous NOTE: as well

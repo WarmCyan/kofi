@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# longer running write processes go here so vim doesn't have to wait
+
+filename=$1
+
+echo `pwd` >> ~/IDIDATHING
+set-recent $filename
+create-recent
+#render $filename
+make | cat >> ~/IDIDATHING # for whatever reason, redirecting the ouput is important or it somehow doesn't run??
+nohup qutebrowser ':reload' &
