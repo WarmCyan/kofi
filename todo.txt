@@ -2,25 +2,27 @@ WAIT: [A] log everything
 WAIT: most of these scripts taking filenames need to also read active-dir
 WAIT: command to copy/make a copy of a note (automatically create link/backlink)
 
-TODO: [A] script to add to recent list
 TODO: :kofinew vim command (simply calls new-note) +vim
 STRT: inbox class
+
+TODO: allow regular links to count as backlink??? (yes, and then backlink with .back just means never explicitly incorporated into text)
+TODO: inserting "#" autocomplete for tags
 
 TODO: determine other todos for searches, reference management, and inbox and workspace management
 TODO: command to open/edit inbox
 TODO: command to open/edit workspaces(?)
 TODO: determine todos for script execution
 
-TODO: make zettelkasten notes go into separate folder
+TODO: make zettelkasten notes go into separate folder?
+TODO: kofi sync (and include refreshing makefile?)
 
-TODO: [A] render makefile
-TODO: [A] copy makefile on zettelkasten init
-TODO: [A] add makefile to tools setup
+TODO: subfolder all kofi bin commands
+
+TODO: basic default stylesheet and template stuff
 
 WAIT: tool to ls and set zettelkasten
 WAIT: python pandoc filter to change markdown links into html links +render
 WAIT: html/css template +render
-STRT: script to run pandoc render +render
 WAIT: script to start server +render
 WAIT: script to fzf search and then open in browser +render
 
@@ -50,3 +52,8 @@ DONE: [D] vim thing to create backlink and open in vim +vim
 DONE: script to update/refresh all link titles (expanded and non)
 DONE: refresh expansions (in case the note itself had been changed)
 DONE: vim buffer enter refresh expansions +vim
+DONE: [A] render makefile
+DONE: [A] copy makefile on zettelkasten init
+DONE: [A] add makefile to tools setup
+DONE: script to run pandoc render +render
+DONE: [A] script to add to recent list

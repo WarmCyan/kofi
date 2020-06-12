@@ -66,4 +66,4 @@ function! SearchInRange(pattern, start_line, end_line)
     return search_result ? 1 : 0
 endfunction
 
-autocmd BufEnter *.md if SearchInRange("<!-- <", 0, line('$')) | :silent exec "!refresh-expansions " . expand('%:t') | echo "expansions refreshed"
+autocmd BufEnter *.md if SearchInRange("<!-- <", 0, line('$')) | :silent exec "!refresh-expansions " . expand('%:t')

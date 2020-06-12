@@ -3,8 +3,10 @@
 filename=$1
 outname=$(echo $filename | sed "s/\.md$/\.html/")
 
+echo $outname
+
 #pushd $(active-dir) > /dev/null
 
-pandoc -i $filename -o render/$outname
+pandoc -i $filename -o rendered/$outname --lua-filter=$BIN_DIR/kofi/links-to-html.lua
 
 #popd > /dev/null

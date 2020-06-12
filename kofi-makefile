@@ -1,10 +1,15 @@
 INPUTS := $(wildcard *.md)
-TARGETS := $(patsubst %.md,render/%.html,$(notdir $(INPUTS)))
+TARGETS := $(patsubst %.md,rendered/%.html,$(notdir $(INPUTS)))
 
 all: $(TARGETS)
 
-render/%.html: %.md | render
+rendered/%.html: %.md | rendered
 	@render $<
 
-render:
+rendered:
 	@mkdir -p render
+
+clean:
+	rm rendered/*
+
+.PHONY: all clean
