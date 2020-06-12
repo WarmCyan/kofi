@@ -36,13 +36,13 @@ for index, line in enumerate(n.content):
         filename = start_pattern.match(line).group(2)
         inner_note = Note()
         inner_note.load(filename)
-        line = f"<!-- <{inner_note.data['name']}|{filename}> -->\n"
+        line = f"<!-- <{inner_note.data['title']}|{filename}> -->\n"
         n.content[index] = line
     elif end_pattern.match(line):
         filename = end_pattern.match(line).group(2)
         inner_note = Note()
         inner_note.load(filename)
-        line = f"<!-- </{inner_note.data['name']}|{filename}> -->\n"
+        line = f"<!-- </{inner_note.data['title']}|{filename}> -->\n"
         n.content[index] = line
 
 n.write()

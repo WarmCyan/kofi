@@ -24,7 +24,7 @@ if os.path.exists("recent.md"):
     n_recent.load("recent.md")
     n_recent.data["date-updated"] = date.today().strftime("%Y-%m-%d")
 else:
-    n_recent.data["name"] = "Recent Notes"
+    n_recent.data["title"] = "Recent Notes"
     n_recent.data["date-created"] = date.today().strftime("%Y-%m-%d")
     n_recent.data["date-updated"] = date.today().strftime("%Y-%m-%d")
     n_recent.data["description"] = "List of recent notes"

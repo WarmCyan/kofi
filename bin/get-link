@@ -5,7 +5,7 @@
 # description flag will be at $2
 
 
-name=$(cat $1 | sed -En "4s/name:\ (.*)$/\\1/p")
+name=$(cat $1 | sed -En "4s/title:\ (.*)$/\\1/p")
 desc=$(cat $1 | sed -En "7s/description:\ (.*)$/\\1/p")
 
 

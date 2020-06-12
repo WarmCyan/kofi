@@ -24,7 +24,7 @@ else:
 n = Note()
 n.load(filename)
 
-name = n.data["name"]
+name = n.data["title"]
 
 output = f"<!-- <{name}|{filename}> -->\n"
 output += "".join(n.content)

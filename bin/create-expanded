@@ -34,7 +34,7 @@ for index, line in enumerate(lines):
         new_note.start_index = index
 
         # get the name
-        new_note.data["name"] = start_pattern.match(line).group(1)
+        new_note.data["title"] = start_pattern.match(line).group(1)
         new_note.data["date-created"] = ""
         new_note.data["date-updated"] = ""
         new_note.data["description"] = ""
@@ -86,7 +86,7 @@ if new_note_found:
     for n in notes:
         start_line = lines[n.start_index]
 
-        name_replace = n.data["name"]
+        name_replace = n.data["title"]
         filename_replace = n.filename
 
         lines[n.start_index] = f"<!-- <{name_replace}|{filename_replace}> -->\n"
