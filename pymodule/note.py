@@ -51,13 +51,13 @@ class Note:
         output = ""
         output += "<!-- KOFI -->\n\n---\n"
 
-        output += self._yamlline("name")
+        output += self._yamlline("title")
         output += self._yamlline("date-created")
         output += self._yamlline("date-updated")
         output += self._yamlline("description")
         output += self._yamlline("tags")
 
-        used = ["name", "date-created", "date-updated", "description", "tags"]
+        used = ["title", "date-created", "date-updated", "description", "tags"]
         unused = [x for x in self.data if x not in used]
         
         for key in unused:

@@ -10,6 +10,9 @@ from kofi import util
 
 new_filename=sys.argv[1]
 
+if new_filename == "recent.md":
+    exit()
+
 path = util.run_shell("active-dir") + "/recent_list.json"
 
 recent = []

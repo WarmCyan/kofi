@@ -10,9 +10,9 @@ rendered:
 	@mkdir -p rendered
 
 rendered/res: | rendered
-	cp $(BIN_DIR)/kofi/assets/res rendered/res
+	@cp -r $(BIN_DIR)/kofi/assets/res rendered/res
 
 clean:
-	rm rendered/*
+	@rm -rfd rendered/*
 
 .PHONY: all clean
