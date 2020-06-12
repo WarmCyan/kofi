@@ -37,6 +37,10 @@ for index, line in enumerate(lines):
 
         # add it to stack
         note_stack.append(new_note)
+        
+        # redo the last one since by previous logic it won't have been added
+        if len(note_stack) > 1:
+            note_stack[-2].content_building.append(line)
     
     # check if we found the end of this note
     elif end_pattern.match(line):
@@ -53,6 +57,3 @@ for index, line in enumerate(lines):
     # normal lines of this new note for creation
     elif len(note_stack) > 0:
         note_stack[-1].content_building.append(line)
-
-
-# TODO: add content from any sub NOTE: to every previous NOTE: as well

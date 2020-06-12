@@ -70,4 +70,4 @@ endfunction
 " completion stuff (because that's entering a buffer)
 " autocmd BufEnter *.md if SearchInRange("<!-- <", 0, line('$')) | :silent exec "!refresh-expansions " . expand('%:t')
 
-nmap <leader>r :silent exec "!refresh-expansions " . expand('%:t')<cr>
+nmap <leader>r :silent exec "!refresh-expansions " . expand('%:t') . "; refresh-links " . expand('%t')<cr> 

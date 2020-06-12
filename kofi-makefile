@@ -1,13 +1,16 @@
 INPUTS := $(wildcard *.md)
 TARGETS := $(patsubst %.md,rendered/%.html,$(notdir $(INPUTS)))
 
-all: $(TARGETS)
+all: $(TARGETS) rendered/res
 
 rendered/%.html: %.md | rendered
 	@render $<
 
 rendered:
 	@mkdir -p rendered
+
+rendered/res: | rendered
+	cp $(BIN_DIR)/kofi/assets/res rendered/res
 
 clean:
 	rm rendered/*

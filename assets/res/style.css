@@ -1,0 +1,60 @@
+body
+{
+	margin: 0;
+	padding: 0;
+	background-color: #021019;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+}
+header
+{
+	margin: 0;
+	padding: 2px;
+	/*display: inline-block;*/
+	background-color: #333;
+	width: 100%;
+	flex: 0 0 auto;
+}
+
+header p,
+header h1
+{
+	font-size: 14px;
+	line-height: 16px;
+	padding: 0px;
+	margin: 2px;
+	display: inline-block;
+	min-width: 10px;
+}
+header p
+{
+	margin-left: 15px;
+}
+
+
+footer p,
+.sideways
+{
+	float: left;
+	display: inline-block;
+}
+
+main
+{
+	flex: 1 0 auto;
+	padding: 5px;
+}
+
+footer
+{
+	font-size: 10px;
+	flex-shrink: 0;
+	background-color: #333;
+	margin: 0;
+	padding: 2px;
+	padding-top:0px;
+	padding-bottom:0px;
+	width: 100%;
+}
+

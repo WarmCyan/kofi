@@ -7,6 +7,6 @@ echo $outname
 
 #pushd $(active-dir) > /dev/null
 
-pandoc -i $filename -o rendered/$outname --lua-filter=$BIN_DIR/kofi/links-to-html.lua
+pandoc -i $filename -o rendered/$outname --lua-filter=$BIN_DIR/kofi/links-to-html.lua --template=$BIN_DIR/kofi/assets/template.html
 
 #popd > /dev/null

@@ -73,3 +73,13 @@ inbox class parses current inbox to find all links in each section
 
 python packages:
 * pyflute
+
+
+
+IMPORTANT:
+We need a way to be able to mark/keep track of a collection, maybe easier than
+ws by itself. Like have an active note and a shortcut to auto add to that
+note?
+
+Also, it would sure be nice if links between things in the same page would link
+to eachother instead of other pages
