@@ -25,13 +25,13 @@ class Inbox(Note):
         current_section = None
 
         for line in self.content:
-            if line[0:1] == "# ":
+            if line[0:2] == "# ":
 
                 # get the section title text
                 section_name = line[2:]
 
                 current_section = section_name
-                self.sections[section_name] = []
+                self.sections[section_name] = [line]
             elif current_section is not None:
                 self.sections[current_section].append(line)
 
@@ -58,7 +58,32 @@ class Inbox(Note):
         notemap.construct_map()
 
         ordered = sorted(notemap.links_from, key=lambda k: len(notemap.links_from[k]))
-        
-        for key in ordered:
-            print(key, notemap.links_from[key])
 
+        for key in ordered:
+            if len(notemap.links_from[key]) <= 2:
+                link = util.run_shell("get-link", key, "-d") + "\n\n"
+                self.low_link_count.append(link)
+
+    # NOTE: assumes parse already called
+    def compile_content(self):
+
+        self.grab_recent()
+        self.find_link_counts()
+
+        print(self.sections.keys())
+
+        if "Recent\n" not in self.sections:
+            self.sections["Recent\n"] = []
+            
+        if "Disconnected\n" not in self.sections:
+            self.sections["Disconnected\n"] = []
+
+        self.sections["Recent\n"] = ["# Recent\n\n"]
+        self.sections["Recent\n"].extend("".join(self.recent))
+        self.sections["Disconnected\n"] = ["# Disconnected\n\n"]
+        self.sections["Disconnected\n"].extend("".join(self.low_link_count))
+        
+        self.content = []
+        for section in self.sections:
+            for line in self.sections[section]:
+                self.content.append(line)

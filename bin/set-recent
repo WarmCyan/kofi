@@ -10,7 +10,7 @@ from kofi import util
 
 new_filename=sys.argv[1]
 
-if new_filename == "recent.md":
+if new_filename == "recent.md" or new_filename == "inbox.md":
     exit()
 
 path = util.run_shell("active-dir") + "/recent_list.json"

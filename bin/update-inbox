@@ -1,0 +1,30 @@
+#!/bin/python3
+
+""" Updates (or creates if non-existing) the inbox """
+
+import os.path
+import sys
+from datetime import date
+
+from kofi import util
+from kofi.inbox import Inbox
+
+active_dir = util.run_shell("active-dir")
+os.chdir(active_dir)
+
+i = Inbox()
+if os.path.exists("inbox.md"):
+    i.load("inbox.md")
+    i.data["date-updated"] = date.today().strftime("%Y-%m-%d")
+    i.data["description"] = "Kofi Inbox / Entrance"
+else:
+    i.data["title"] = "Inbox"
+    i.data["date-created"] = date.today().strftime("%Y-%m-%d")
+    i.data["date-updated"] = date.today().strftime("%Y-%m-%d")
+    i.data["description"] = "Kofi Inbox / Entrance"
+    i.data["tags"] = ""
+    i.filename = "inbox.md"
+
+i.parse_sections()
+i.compile_content()
+i.write()

@@ -19,7 +19,7 @@ class Map:
 
         self.filetitles = {}
 
-    def construct_map(self, ignore_recent=True, grab_titles=True):
+    def construct_map(self, ignore_recent=True, ignore_inbox=True, grab_titles=True):
         active_dir = util.run_shell("active-dir")
         os.chdir(active_dir)
 
@@ -27,6 +27,8 @@ class Map:
 
         for filepath in glob.iglob("*.md"):
             if filepath == "recent.md" and ignore_recent:
+                continue
+            if filepath == "inbox.md" and ignore_inbox:
                 continue
 
             if grab_titles:

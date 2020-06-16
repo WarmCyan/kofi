@@ -3,8 +3,8 @@ WAIT: most of these scripts taking filenames need to also read active-dir
 WAIT: command to copy/make a copy of a note (automatically create link/backlink)
 
 TODO: :kofinew vim command (simply calls new-note) +vim
-STRT: inbox class
-STRT: inbox handler
+
+TODO: script/vim handler to reverse backlink (add primary link to target, and backlink in current)
 
 TODO: add bat as file render for search-edit
 
@@ -34,6 +34,8 @@ WAIT: vim thing to directly call get-link on md filename (expand) +vim
 WAIT: vim copy filename +vim
 WAIT: shortcut to move cursor to filename in next link +vim
 
+WAIT: ability to specify depth of mapping +graph
+
 DONE: script to get text line TOC reference for filename
 DONE: zettelkasten initialization and config setup script
 DONE: add description to get-link and template and ability to add that to return text
@@ -60,3 +62,5 @@ DONE: [A] copy makefile on zettelkasten init
 DONE: [A] add makefile to tools setup
 DONE: script to run pandoc render +render
 DONE: [A] script to add to recent list
+DONE: inbox class
+DONE: inbox handler
