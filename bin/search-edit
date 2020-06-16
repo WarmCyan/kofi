@@ -4,5 +4,5 @@
 
 cache_dir=$(active-dir)
 pushd $cache_dir > /dev/null
-nvim $(rg . | fzf --preview "echo {} | cut -d: -f1 | xargs bat" | sed -E "s/([a-zA-Z0-9\-\_\/]*):.*/\1/")
+nvim $(rg . | fzf --ansi --preview "echo {} | cut -d: -f1 | xargs bat --color=always --style=header,grid" | sed -E "s/([a-zA-Z0-9\-\_\/]*):.*/\1/")
 popd > /dev/null

@@ -1,12 +1,11 @@
 WAIT: [A] log everything
-WAIT: most of these scripts taking filenames need to also read active-dir
+WAIT: subfolder all kofi bin commands
 WAIT: command to copy/make a copy of a note (automatically create link/backlink)
 
 TODO: :kofinew vim command (simply calls new-note) +vim
-
-TODO: script/vim handler to reverse backlink (add primary link to target, and backlink in current)
-
-TODO: add bat as file render for search-edit
+TODO: search-edit for inside of vim +vim
+TODO: add bat preview support to vim fzf search +vim
+TODO: script/vim handler to reverse backlink (add primary link to target, and backlink in current) +vim
 
 TODO: allow regular links to count as backlink??? (yes, and then backlink with .back just means never explicitly incorporated into text)
 TODO: inserting "#" autocomplete for tags
@@ -14,7 +13,6 @@ TODO: inserting "#" autocomplete for tags
 TODO: determine other todos for searches, reference management, and inbox and workspace management
 TODO: command to open/edit inbox
 TODO: command to open/edit workspaces(?)
-TODO: determine todos for script execution
 
 TODO: content script execution
 TODO: output script execution
@@ -22,11 +20,10 @@ TODO: output script execution
 TODO: make zettelkasten notes go into separate folder?
 TODO: kofi sync (and include refreshing makefile?)
 
-TODO: subfolder all kofi bin commands
+TODO: command to send editor to browser and vice versa
 
 WAIT: tool to ls and set zettelkasten
 WAIT: python pandoc filter to change markdown links into html links +render
-WAIT: html/css template +render
 WAIT: script to start server +render
 WAIT: script to fzf search and then open in browser +render
 
@@ -64,3 +61,5 @@ DONE: script to run pandoc render +render
 DONE: [A] script to add to recent list
 DONE: inbox class
 DONE: inbox handler
+DONE: add bat as file render for search-edit
+DONE: html/css template +render
