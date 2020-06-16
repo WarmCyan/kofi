@@ -59,3 +59,9 @@ def to_tag_string(tags):
 def run_shell(*args):
     output = subprocess.run(args, stdout=subprocess.PIPE).stdout.decode('ascii').rstrip()
     return output
+
+
+def get_title(filename):
+    """ Returns the title for the given filename. """
+    # NOTE: just do this in bash
+    pass

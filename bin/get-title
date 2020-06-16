@@ -1,0 +1,5 @@
+#!/bin/bash
+
+name=$(cat $1 | sed -En "4s/title:\ (.*)$/\\1/p")
+
+echo $name

@@ -1,0 +1,10 @@
+#!/bin/python3
+
+from kofi.map import Map
+
+m = Map()
+m.construct_map(m)
+result = m.to_graphviz()
+
+with open("testing.dot", 'w') as outfile:
+    outfile.write(result)

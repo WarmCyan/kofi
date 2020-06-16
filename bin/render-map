@@ -1,0 +1,4 @@
+#!/bin/bash
+
+output-map
+cat testing.dot | graph-easy --as=boxart

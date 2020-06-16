@@ -3,7 +3,10 @@ WAIT: most of these scripts taking filenames need to also read active-dir
 WAIT: command to copy/make a copy of a note (automatically create link/backlink)
 
 TODO: :kofinew vim command (simply calls new-note) +vim
-WAIT: inbox class
+STRT: inbox class
+STRT: inbox handler
+
+TODO: add bat as file render for search-edit
 
 TODO: allow regular links to count as backlink??? (yes, and then backlink with .back just means never explicitly incorporated into text)
 TODO: inserting "#" autocomplete for tags
@@ -12,6 +15,9 @@ TODO: determine other todos for searches, reference management, and inbox and wo
 TODO: command to open/edit inbox
 TODO: command to open/edit workspaces(?)
 TODO: determine todos for script execution
+
+TODO: content script execution
+TODO: output script execution
 
 TODO: make zettelkasten notes go into separate folder?
 TODO: kofi sync (and include refreshing makefile?)

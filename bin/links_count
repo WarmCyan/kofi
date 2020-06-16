@@ -1,0 +1,7 @@
+#!/bin/python3
+
+
+from kofi.inbox import Inbox
+
+i = Inbox()
+i.find_link_counts()

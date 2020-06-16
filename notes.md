@@ -83,3 +83,15 @@ note?
 
 Also, it would sure be nice if links between things in the same page would link
 to eachother instead of other pages
+
+
+what does a script get - 
+
+$content
+
+
+inbox:
+* low link count
+* recent
+* any else
+* stats?
