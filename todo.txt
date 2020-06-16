@@ -17,7 +17,7 @@ TODO: kofi sync (and include refreshing makefile?)
 
 TODO: command to send editor to browser and vice versa
 
-WAIT: tool to ls and set zettelkasten
+STRT: tool to ls and set zettelkasten
 WAIT: python pandoc filter to change markdown links into html links +render
 WAIT: script to start server +render
 WAIT: script to fzf search and then open in browser +render

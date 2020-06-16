@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#cat $DATA_DIR/kofi/list
+
+#echo ""
+#echo "active: $(cat $DATA_DIR/kofi/active)"
+
+
+for file in $(cat $DATA_DIR/kofi/list)
+do
+	if [[ "$file" == "$(cat $DATA_DIR/kofi/active)" ]]
+	then
+		echo "$file ($(cat $DATA_DIR/kofi/paths/$file)) (ACTIVE)"
+	else
+		echo "$file ($(cat $DATA_DIR/kofi/paths/$file))"
+	fi
+done
