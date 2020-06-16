@@ -1,0 +1,31 @@
+#!/bin/python3
+
+import sys
+import os
+from datetime import date
+
+from kofi import util
+from kofi.note import Note
+
+filename = sys.argv[1]
+script_type = sys.argv[2]
+
+n = Note()
+n.load(filename)
+if n.data[f"{script_type}-script"]:
+    script = n.data[f"{script_type}-script"]
+
+    # set environment variables that the script line can reference
+    os.environ["filename"] = n.filename
+    os.environ["title"] = n.data["title"]
+    os.environ["content"] = "".join(n.content)
+    os.environ["fullpath"] = os.path.abspath(n.filename)
+
+    # run the script line
+    output = util.run_raw_shell(script)
+
+    # set the content if needed
+    if script_type == "content":
+        n.content = output
+        n.data["date-updated"] = date.today().strftime("%Y-%m-%d")
+        n.write()

@@ -60,6 +60,10 @@ def run_shell(*args):
     output = subprocess.run(args, stdout=subprocess.PIPE).stdout.decode('ascii').rstrip()
     return output
 
+def run_raw_shell(*args):
+    output = subprocess.run(args, stdout=subprocess.PIPE, shell=True).stdout.decode('ascii').rstrip()
+    return output
+
 
 def get_title(filename):
     """ Returns the title for the given filename. """
