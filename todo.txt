@@ -4,7 +4,6 @@ WAIT: command to copy/make a copy of a note (automatically create link/backlink)
 
 TODO: :kofinew vim command (simply calls new-note) +vim
 TODO: search-edit for inside of vim +vim
-TODO: add bat preview support to vim fzf search +vim
 TODO: script/vim handler to reverse backlink (add primary link to target, and backlink in current) +vim
 
 TODO: allow regular links to count as backlink??? (yes, and then backlink with .back just means never explicitly incorporated into text)
@@ -12,10 +11,6 @@ TODO: inserting "#" autocomplete for tags
 
 TODO: determine other todos for searches, reference management, and inbox and workspace management
 TODO: command to open/edit inbox
-TODO: command to open/edit workspaces(?)
-
-TODO: content script execution
-TODO: output script execution
 
 TODO: make zettelkasten notes go into separate folder?
 TODO: kofi sync (and include refreshing makefile?)
@@ -63,3 +58,6 @@ DONE: inbox class
 DONE: inbox handler
 DONE: add bat as file render for search-edit
 DONE: html/css template +render
+DONE: content script execution
+DONE: output script execution
+DONE: add bat preview support to vim fzf search +vim

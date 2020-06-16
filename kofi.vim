@@ -13,7 +13,7 @@ endfunction
 inoremap <expr> <C-l> fzf#vim#complete(fzf#wrap({
 			\ 'prefix': expand("<cword>"),
 			\ 'source': 'rg ^ --line-number --glob "*.md"',
-			\ 'options': '',
+			\ 'options': '--preview "echo {} \| cut -d: -f1 \| xargs bat --color=always --style=plain"',
 			\ 'reducer': { lines -> KofiGetLink(lines) }}))
 
 
