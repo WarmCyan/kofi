@@ -1,0 +1,15 @@
+#!/bin/bash
+
+cd $(kofi-active-dir)
+
+tmux new-session -d -s kofi-instance
+
+tmux split-window -t kofi-instance:0 -h 
+
+tmux select-pane -t 0
+tmux send-keys "kofi-serve" enter
+tmux select-pane -t 1
+tmux send-keys "kofi-open" enter
+tmux send-keys "tail -f log_color.log" enter
+
+tmux a -t kofi-instance

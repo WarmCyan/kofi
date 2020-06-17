@@ -1,5 +1,8 @@
 
 # Kofi Tools Documentation
+## `kn`
+
+
 ## `kofi`
 
 
@@ -136,6 +139,9 @@ nohup background-process-write $filename &
 ## `kofi-set-recent`
 
 
+## `kofi-start`
+
+
 ## `kofi-sync`
 
 
@@ -143,5 +149,8 @@ nohup background-process-write $filename &
 
 
 ## `kofi-write-note-content`
+
+
+## `kse`
 
 

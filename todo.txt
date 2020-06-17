@@ -1,5 +1,3 @@
-WAIT: server stuff in tmux +cleanup
-
 WAIT: command to copy/make a copy of a note (automatically create link/backlink)
 
 WAIT: :kofinew vim command (simply calls new-note) +vim
@@ -29,8 +27,10 @@ TODO: add dates to recent page
 TODO: fix standalone link pattern :: matching in refresh-links
 
 TODO: only replace content of file with content script if it doesn't error out
+TODO: there are still update problems where if I update a note that is expanded elsewhere, the expansion doesn't update until that file is saved
 
-TODO: [A] redirect all error output to log
+TODO: kn and kse should be aliases in bashrc, not "tools"
+
 
 WAIT: stats section in inbox
 
@@ -81,3 +81,6 @@ DONE: [A] add "hidden" data tag to exclude from recent and disconnected
 DONE: [A] on any includes, run any content scripts
 DONE: [A] log everything +cleanup
 DONE: subfolder all kofi bin commands +cleanup
+DONE: [A] redirect all error output to log
+DONE: server stuff in tmux +cleanup
+DONE: start server and log

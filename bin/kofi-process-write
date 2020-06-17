@@ -6,4 +6,4 @@ kofi-propagate-expanded $filename
 kofi-create-expanded $filename
 # TODO: refresh titles
 kofi-set-date "updated" $filename
-nohup kofi-background-process-write $filename &
+nohup kofi-background-process-write $filename >/dev/null &

@@ -2,6 +2,7 @@
 
 pushd $(kofi-active-dir)/rendered > /dev/null
 
+kofi-log "server" "info" "Starting server on port 7890"
 python3 -m http.server 7890
 
 popd > /dev/null
