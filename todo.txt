@@ -21,7 +21,7 @@ TODO: add droidsansmono font +render
 TODO: mobile css +render
 TODO: favicon +render
 
-TODO: [A] on any includes, run any content scripts
+STRT: [A] on any includes, run any content scripts
 
 WAIT: command to send editor to browser and vice versa
 

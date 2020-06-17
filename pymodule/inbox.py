@@ -61,7 +61,7 @@ class Inbox(Note):
 
         for key in ordered:
             if len(notemap.links_from[key]) <= 2:
-                link = util.run_shell("get-link", key, "-d") + "\n\n"
+                link = util.run_shell("get-link", key, "-d") + " (" + str(len(notemap.links_from[key])) + ")\n\n"
                 self.low_link_count.append(link)
 
     # NOTE: assumes parse already called
