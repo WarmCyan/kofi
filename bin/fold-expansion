@@ -43,7 +43,7 @@ output = lines[0:start_index]
 
 #link = subprocess.run(["get-link", folding_filename, "-d"], stdout=subprocess.PIPE).stdout.decode('ascii').rstrip()
 link = util.run_shell("get-link", folding_filename, "-d")
-output.append(link)
+output.append(link + "\n")
 output.extend(lines[end_index+1:])
 
 with open(filename, 'w') as outfile:

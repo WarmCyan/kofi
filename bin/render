@@ -9,6 +9,6 @@ run-script $filename "content"
 
 #pushd $(active-dir) > /dev/null
 
-pandoc -i $filename -o rendered/$outname --lua-filter=$BIN_DIR/kofi/links-to-html.lua --template=$BIN_DIR/kofi/assets/template.html
+pandoc -i $filename -o rendered/$outname --lua-filter=$BIN_DIR/kofi/links-to-html.lua --template=$BIN_DIR/kofi/assets/template.html --filter pandoc-include
 
 #popd > /dev/null

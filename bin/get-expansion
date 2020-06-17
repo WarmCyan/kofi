@@ -32,6 +32,8 @@ name = n.data["title"]
 
 output = f"<!-- <{name}|{filename}> -->\n"
 output += "".join(n.content)
-output += f"<!-- </{name}|{filename}> -->"
+if output[-1] != "\n":
+    output += "\n"
+output += f"<!-- </{name}|{filename}> -->\n"
 
 print(output)
