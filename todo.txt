@@ -13,11 +13,10 @@ TODO: determine other todos for searches, reference management, and inbox and wo
 TODO: command to open/edit inbox
 
 TODO: make zettelkasten notes go into separate folder?
-TODO: kofi sync (and include refreshing makefile?)
+STRT: kofi sync (and include refreshing makefile?)
 
 TODO: command to send editor to browser and vice versa
 
-STRT: tool to ls and set zettelkasten
 WAIT: python pandoc filter to change markdown links into html links +render
 WAIT: script to start server +render
 WAIT: script to fzf search and then open in browser +render
@@ -61,3 +60,4 @@ DONE: html/css template +render
 DONE: content script execution
 DONE: output script execution
 DONE: add bat preview support to vim fzf search +vim
+DONE: tool to ls and set zettelkasten
