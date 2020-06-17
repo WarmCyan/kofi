@@ -1,0 +1,3 @@
+#!/bin/bash
+
+nohup qutebrowser localhost:7890/inbox.html --target window & > /dev/null

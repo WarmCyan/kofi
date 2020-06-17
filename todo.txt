@@ -1,5 +1,6 @@
 WAIT: [A] log everything +cleanup
 WAIT: subfolder all kofi bin commands +cleanup
+WAIT: server stuff in tmux +cleanup
 
 WAIT: command to copy/make a copy of a note (automatically create link/backlink)
 
@@ -12,12 +13,14 @@ WAIT: shortcut to move cursor to filename in next link +vim
 
 WAIT: inserting "#" autocomplete for tags +tags
 
-TODO: command to open/edit inbox
 TODO: references?!?!?!?
 
-STRT: script to start server +render
 TODO: script to fzf search and then open in browser +render
 TODO: mapping choose root node +graph
+
+TODO: add droidsansmono font +render
+TODO: mobile css +render
+TODO: favicon +render
 
 WAIT: command to send editor to browser and vice versa
 
@@ -57,3 +60,5 @@ DONE: add bat preview support to vim fzf search +vim
 DONE: tool to ls and set zettelkasten
 DONE: kofi sync (and include refreshing makefile?)
 DONE: python pandoc filter to change markdown links into html links +render
+DONE: command to open/edit inbox
+DONE: script to start server +render
