@@ -13,7 +13,7 @@ WAIT: shortcut to move cursor to filename in next link +vim
 WAIT: vim script to change a link to an include and vice versa +vim
 
 WAIT: inserting "#" autocomplete for tags +tags
-TODO: tag search script that compiles list of links to all results +tags
+WAIT: tag search script that compiles list of links to all results +tags
 
 TODO: references?!?!?!?
 

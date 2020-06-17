@@ -1,4 +1,5 @@
 #!/bin/bash
+# prints out the directory of the currently active zettelkasten
 
 active_name=$(cat $DATA_DIR/kofi/active)
 active_path=$(cat $DATA_DIR/kofi/paths/$active_name)
