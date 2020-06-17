@@ -48,9 +48,7 @@ class Map:
                 # scan the file for links
                 self.parse_file_links(filepath)
         else:
-            if grab_titles:
-                title = util.run_shell("get-title", root)
-                self.filetitles[root] = title
+            self.handle_path(root)
                 
             with open(root, "r") as infile:
                 contents = infile.read()
@@ -60,12 +58,23 @@ class Map:
                     link = match
                     self.create_link(root, link)
                     
-                    if grab_titles:
-                        title = util.run_shell("get-title", link)
-                        self.filetitles[link] = title
+                    self.handle_path(link)
                     
                     # go one level deep
                     self.parse_file_links(link)
+
+    def handle_path(self, filepath, grab_titles=True):
+        """ Go through the standard things that each file needs to go through """
+        if grab_titles:
+            title = util.run_shell("get-title", filepath)
+            self.filetitles[filepath] = title
+            
+        if filepath not in self.links_to:
+            self.links_to[filepath] = []
+            
+        if filepath not in self.links_from:
+            self.links_from[filepath] = []
+            
                 
     def parse_file_links(self, filepath, grab_titles=True):
         with open(filepath, "r") as infile:
@@ -76,9 +85,7 @@ class Map:
                 link = match
                 self.create_link(filepath, link)
                 
-                if grab_titles:
-                    title = util.run_shell("get-title", link)
-                    self.filetitles[link] = title
+                self.handle_path(link)
         
 
     # file_from is a
