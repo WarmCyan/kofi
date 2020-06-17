@@ -1,5 +1,19 @@
 #!/bin/bash
 
+#> Searches given file to see if a (specifically) backlink exists to the other given file
+#>
+#> **Arguments:**
+#> 1. The file to check if there's a backlink _to_.
+#> 2. The file to check if there's a backlink _from_.
+#>
+#> **Output:** `backlink exists` if there is a backlink from arg2 to arg1, `no backlink` if not.
+#>
+#> **Examples:**
+#> ```
+#> $ kofi-check-backlink $current_file $destination_file
+#> no backlink
+#> ```
+
 current_file=$1
 check_file=$2
 

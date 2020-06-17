@@ -8,10 +8,10 @@
 #> * Renders given file
 #> * Reloads qutebrowser
 #>
-#> Arguments:
+#> **Arguments:**
 #> 1. filename of the file that was just changed
 #>
-#> Examples:
+#> **Examples:**
 #> ```bash
 #> nohup background-process-write $filename &
 #> ```

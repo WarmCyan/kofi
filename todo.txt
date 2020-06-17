@@ -18,6 +18,7 @@ TODO: script to fzf search and then open in browser +render
 TODO: add droidsansmono font +render
 TODO: mobile css +render
 TODO: favicon +render
+TODO: syntax highlighting in ``` code +render
 
 TODO: refresh content scripts (run on all) [and then refresh expansions]
 

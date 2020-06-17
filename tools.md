@@ -10,9 +10,9 @@
 
 Prints out the directory of the currently active zettelkasten
 
-Output: single line containing directory  
+**Output:** single line containing directory  
 
-Examples:
+**Examples:**
 ```bash
 pushd $(kofi active-dir) > /dev/null
 # ...
@@ -33,16 +33,28 @@ Any longer-running background tasks that should run on file write go here (to av
 * Renders given file
 * Reloads qutebrowser
 
-Arguments:
+**Arguments:**
 1. filename of the file that was just changed
 
-Examples:
+**Examples:**
 ```bash
 nohup background-process-write $filename &
 ```
 ## `kofi-check-backlink`
 
+Searches given file to see if a (specifically) backlink exists to the other given file
 
+**Arguments:**
+1. The file to check if there's a backlink _to_.
+2. The file to check if there's a backlink _from_.
+
+**Output:** `backlink exists` if there is a backlink from arg2 to arg1, `no backlink` if not.
+
+**Examples:**
+```
+$ kofi-check-backlink $current_file $destination_file
+no backlink
+```
 ## `kofi-create-backlink`
 
 

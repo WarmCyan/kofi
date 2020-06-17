@@ -2,9 +2,9 @@
 
 #> Prints out the directory of the currently active zettelkasten
 #>
-#> Output: single line containing directory  
+#> **Output:** single line containing directory  
 #> 
-#> Examples:
+#> **Examples:**
 #> ```bash
 #> pushd $(kofi active-dir) > /dev/null
 #> # ...
