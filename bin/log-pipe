@@ -1,2 +1,9 @@
 #!/bin/bash
 # takes in a log message on stdin and outputs it
+
+src=$1
+level=$2
+
+while IFS='$\n' read -r line; do
+	log $src $level "$line"
+done
