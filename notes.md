@@ -109,5 +109,4 @@ tag search script that copmiles list of links to all results - this could allow
 expansions that auto fill with tag results. (e.g. anything with a workspace
 tag automatically gets added to workspaces note)
 
-eventually may want way to dilneate linking versus expansions versus inclusion
-in diagrams
+eventually may want way to dilneate linking versus expansions versus inclusion in diagrams

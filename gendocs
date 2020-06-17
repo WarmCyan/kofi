@@ -1,3 +1,18 @@
 #!/bin/bash
 
+function write
+{
+	echo -e "$1" >> tools.md
+}
 
+echo "" > tools.md
+
+write "# Kofi Tools Documentation"
+
+for tool in $(ls bin)
+do
+	echo "Finding docs in '$tool'..."
+	write "## \`$tool\`\n"
+	docs=$(cat bin/$tool | sed -En "s/#>\ (.*)$/\\1/p")
+	write "$docs"
+done
