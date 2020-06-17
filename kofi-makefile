@@ -1,7 +1,7 @@
 INPUTS := $(wildcard *.md)
 TARGETS := $(patsubst %.md,rendered/%.html,$(notdir $(INPUTS)))
 
-all: $(TARGETS) rendered/res
+all: $(TARGETS) rendered/res .gitignore
 
 rendered/%.html: %.md | rendered
 	@render $<
@@ -11,6 +11,9 @@ rendered:
 
 rendered/res: | rendered
 	@cp -r $(BIN_DIR)/kofi/assets/res rendered/res
+
+.gitignore: $(BIN_DIR)/kofi/gitignore
+	@cp $(BIN_DIR)/kofi/gitignore .gitignore
 
 clean:
 	@rm -rfd rendered/*
