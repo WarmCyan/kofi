@@ -13,7 +13,7 @@
 #>
 #> **Examples:**
 #> ```bash
-#> nohup background-process-write $filename &
+#> nohup kofi-background-process-write $filename &
 #> ```
 
 filename=$1

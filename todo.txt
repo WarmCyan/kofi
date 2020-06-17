@@ -1,3 +1,4 @@
+STRT: bin script documentation +docs
 WAIT: command to copy/make a copy of a note (automatically create link/backlink)
 
 WAIT: :kofinew vim command (simply calls new-note) +vim
@@ -14,7 +15,6 @@ WAIT: tag search script that compiles list of links to all results +tags
 TODO: references?!?!?!?
 
 TODO: script to fzf search and then open in browser +render
-
 TODO: add droidsansmono font +render
 TODO: mobile css +render
 TODO: favicon +render

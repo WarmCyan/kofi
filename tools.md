@@ -8,19 +8,19 @@
 
 ## `kofi-active-dir`
 
-Prints out the directory of the currently active zettelkasten
+Prints out the directory of the currently active zettelkasten.
 
 **Output:** single line containing directory  
 
 **Examples:**
 ```bash
-pushd $(kofi active-dir) > /dev/null
+pushd $(kofi-active-dir) > /dev/null
 # ...
 popd > /dev/null
 ```
 
 ```
-$ kofi active-dir
+$ kofi-active-dir
 /home/dwl/tmp/testzettel
 ```
 ## `kofi-background-process-write`
@@ -38,11 +38,11 @@ Any longer-running background tasks that should run on file write go here (to av
 
 **Examples:**
 ```bash
-nohup background-process-write $filename &
+nohup kofi-background-process-write $filename &
 ```
 ## `kofi-check-backlink`
 
-Searches given file to see if a (specifically) backlink exists to the other given file
+Searches given file to see if a (specifically) backlink exists to the other given file.
 
 **Arguments:**
 1. The file to check if there's a backlink _to_.
@@ -57,7 +57,19 @@ no backlink
 ```
 ## `kofi-create-backlink`
 
+Creates a backlink from arg2 to arg1 if one does not already exist.
 
+**Arguments:**
+1. The file to make a backlink _to_.
+2. The file to make a backlink _from_.
+
+**Output:** `backlink created` if successfully created a backlink from arg2 to arg1, `backlink exists` if already a backlink.
+
+**Examples:**
+```
+$ kofi-create-backlink $current_file $destination_file
+backlink created
+```
 ## `kofi-create-expanded`
 
 

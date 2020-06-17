@@ -1,18 +1,18 @@
 #!/bin/bash
 
-#> Prints out the directory of the currently active zettelkasten
+#> Prints out the directory of the currently active zettelkasten.
 #>
 #> **Output:** single line containing directory  
 #> 
 #> **Examples:**
 #> ```bash
-#> pushd $(kofi active-dir) > /dev/null
+#> pushd $(kofi-active-dir) > /dev/null
 #> # ...
 #> popd > /dev/null
 #> ```
 #>
 #> ```
-#> $ kofi active-dir
+#> $ kofi-active-dir
 #> /home/dwl/tmp/testzettel
 #> ```
 

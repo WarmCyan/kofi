@@ -1,5 +1,19 @@
 #!/bin/bash
 
+#> Creates a backlink from arg2 to arg1 if one does not already exist.
+#> 
+#> **Arguments:**
+#> 1. The file to make a backlink _to_.
+#> 2. The file to make a backlink _from_.
+#> 
+#> **Output:** `backlink created` if successfully created a backlink from arg2 to arg1, `backlink exists` if already a backlink.
+#> 
+#> **Examples:**
+#> ```
+#> $ kofi-create-backlink $current_file $destination_file
+#> backlink created
+#> ```
+
 current_file=$1
 dest_file=$2
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#> Searches given file to see if a (specifically) backlink exists to the other given file
+#> Searches given file to see if a (specifically) backlink exists to the other given file.
 #>
 #> **Arguments:**
 #> 1. The file to check if there's a backlink _to_.
