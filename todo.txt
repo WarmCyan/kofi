@@ -30,6 +30,8 @@ TODO: add dates to recent page
 
 TODO: fix standalone link pattern :: matching in refresh-links
 
+TODO: only replace content of file with content script if it doesn't error out
+
 WAIT: stats section in inbox
 
 WAIT: way to dilneate linking versus expansions versus inclusion in diagrams

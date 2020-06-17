@@ -9,10 +9,26 @@ echo "" > tools.md
 
 write "# Kofi Tools Documentation"
 
+counter=0
+
 for tool in $(ls bin)
 do
 	echo "Finding docs in '$tool'..."
 	write "## \`$tool\`\n"
-	docs=$(cat bin/$tool | sed -En "s/#>\ (.*)$/\\1/p")
+	docs=$(cat bin/$tool | sed -En "s/#>\s*(.*)$/\\1/p")
+
+	if [[ "$docs" == "" ]]
+	then
+		counter=$((counter+1))
+		echo "NO DOCS FOUND"
+	fi
+	
 	write "$docs"
 done
+
+if [ $counter -gt 0 ]
+then
+	echo -e "${C_YELLOW_L}Missing documentation for $counter tools!${C_RESET}"
+else
+	echo -e "${C_GREEN_L}All tools appropriately documented!${C_RESET}"
+fi

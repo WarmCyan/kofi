@@ -3,6 +3,7 @@
 ## `active-dir`
 
 Prints out the directory of the currently active zettelkasten
+
 Output: single line containing directory  
 
 Examples:
@@ -11,6 +12,7 @@ pushd $(kofi active-dir) > /dev/null
 # ...
 popd > /dev/null
 ```
+
 ```
 $ kofi active-dir
 /home/dwl/tmp/testzettel
@@ -18,13 +20,16 @@ $ kofi active-dir
 ## `background-process-write`
 
 Any longer-running background tasks that should run on file write go here (to avoid editor delay.)
+
 * Updates recent notes
 * Updates inbox
 * Runs any output script
 * Renders given file
 * Reloads qutebrowser
+
 Arguments:
 1. filename of the file that was just changed
+
 Examples:
 ```bash
 nohup background-process-write $filename &
