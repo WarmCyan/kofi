@@ -10,8 +10,10 @@ WAIT: script/vim handler to reverse backlink (add primary link to target, and ba
 WAIT: vim thing to directly call get-link on md filename (expand) +vim
 WAIT: vim copy filename +vim
 WAIT: shortcut to move cursor to filename in next link +vim
+WAIT: vim script to change a link to an include and vice versa +vim
 
 WAIT: inserting "#" autocomplete for tags +tags
+TODO: tag search script that compiles list of links to all results +tags
 
 TODO: references?!?!?!?
 
@@ -21,7 +23,14 @@ TODO: add droidsansmono font +render
 TODO: mobile css +render
 TODO: favicon +render
 
-STRT: [A] on any includes, run any content scripts
+TODO: refresh content scripts (run on all) [and then refresh expansions]
+
+TODO: add link to recent page in inbox
+TODO: add dates to recent page
+
+TODO: fix standalone link pattern :: matching in refresh-links
+
+WAIT: way to dilneate linking versus expansions versus inclusion in diagrams
 
 WAIT: command to send editor to browser and vice versa
 
@@ -65,3 +74,4 @@ DONE: command to open/edit inbox
 DONE: script to start server +render
 DONE: mapping choose root node +graph
 DONE: [A] add "hidden" data tag to exclude from recent and disconnected
+DONE: [A] on any includes, run any content scripts

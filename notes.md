@@ -102,5 +102,12 @@ Big things still needed:
 * [A] Serving/starting
 * [B] Better mapping functions
 * [B] Cleanup (subfolders/logging)
-* Stats in inbox
+* Stats in inbox (most connected!)
 * Tags
+
+tag search script that copmiles list of links to all results - this could allow
+expansions that auto fill with tag results. (e.g. anything with a workspace
+tag automatically gets added to workspaces note)
+
+eventually may want way to dilneate linking versus expansions versus inclusion
+in diagrams
