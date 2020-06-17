@@ -1,9 +1,0 @@
-#!/bin/bash
-
-filename=$1
-
-propagate-expanded $filename
-create-expanded $filename
-# TODO: refresh titles
-set-date "updated" $filename
-nohup background-process-write $filename &

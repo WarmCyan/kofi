@@ -5,5 +5,5 @@ src=$1
 level=$2
 
 while IFS='$\n' read -r line; do
-	log $src $level "$line"
+	kofi-log $src $level "$line"
 done

@@ -2,18 +2,19 @@ INPUTS := $(wildcard *.md)
 TARGETS := $(patsubst %.md,rendered/%.html,$(notdir $(INPUTS)))
 
 all: $(TARGETS) rendered/res .gitignore imagecopy
+	@kofi-log "makefile" "info" "Make complete"
 
 rendered/%.html: %.md | rendered
-	@render $<
+	@kofi-render $<
 
 rendered:
 	@mkdir -p rendered
 
 rendered/res: | rendered
-	@cp -r $(BIN_DIR)/kofi/assets/res rendered/res
+	@cp -r $(BIN_DIR)/kofi_res/assets/res rendered/res
 
-.gitignore: $(BIN_DIR)/kofi/gitignore
-	@cp $(BIN_DIR)/kofi/gitignore .gitignore
+.gitignore: $(BIN_DIR)/kofi_res/gitignore
+	@cp $(BIN_DIR)/kofi_res/gitignore .gitignore
 
 images:
 	@mkdir -p images

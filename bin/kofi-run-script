@@ -15,6 +15,8 @@ n.load(filename)
 if f"{script_type}-script" in n.data:
     script = n.data[f"{script_type}-script"]
 
+    util.log(f"Running {script_type} script for {filename}", "run-script")
+
     # set environment variables that the script line can reference
     os.environ["filename"] = n.filename
     os.environ["title"] = n.data["title"]

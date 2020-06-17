@@ -36,7 +36,7 @@ class Inbox(Note):
                 self.sections[current_section].append(line)
 
     def grab_recent(self):
-        active_dir = util.run_shell("active-dir")
+        active_dir = util.run_shell("kofi-active-dir")
         os.chdir(active_dir)
         path = "recent_list.json"
         recent = []
@@ -47,11 +47,11 @@ class Inbox(Note):
         for index, note in enumerate(recent):
             if index >= 10:
                 break
-            link = util.run_shell("get-link", note, "-d") + "\n\n"
+            link = util.run_shell("kofi-get-link", note, "-d") + "\n\n"
             self.recent.append(link)
 
     def find_link_counts(self):
-        active_dir = util.run_shell("active-dir")
+        active_dir = util.run_shell("kofi-active-dir")
         os.chdir(active_dir)
         
         notemap = Map()
@@ -61,7 +61,7 @@ class Inbox(Note):
 
         for key in ordered:
             if len(notemap.links_from[key]) <= 2:
-                link = util.run_shell("get-link", key, "-d") + " :: (" + str(len(notemap.links_from[key])) + ")\n\n"
+                link = util.run_shell("kofi-get-link", key, "-d") + " :: (" + str(len(notemap.links_from[key])) + ")\n\n"
                 self.low_link_count.append(link)
 
     # NOTE: assumes parse already called
@@ -69,8 +69,6 @@ class Inbox(Note):
 
         self.grab_recent()
         self.find_link_counts()
-
-        print(self.sections.keys())
 
         if "Recent\n" not in self.sections:
             self.sections["Recent\n"] = []

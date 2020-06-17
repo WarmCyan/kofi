@@ -2,7 +2,7 @@
 
 filename=$1
 cat $1 | sed -En "s/!include (.*)$/\\1/p" | while read -r line; do
-	run-script $line "content"
-	refresh-expansions $line
-	refresh-links $line
+	kofi-run-script $line "content"
+	kofi-refresh-expansions $line
+	kofi-refresh-links $line
 done

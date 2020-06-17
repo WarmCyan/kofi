@@ -1,4 +1,4 @@
 #!/bin/bash
 
-output-map
+kofi-output-map
 cat testing.dot | graph-easy --as=boxart

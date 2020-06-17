@@ -11,7 +11,7 @@ from datetime import date
 from kofi import util
 from kofi.note import Note
 
-active_dir = util.run_shell("active-dir")
+active_dir = util.run_shell("kofi-active-dir")
 os.chdir(active_dir)
 path = "recent_list.json"
 recent = []
@@ -34,7 +34,7 @@ else:
 content = ["# Recent Notes\n\n"]
 
 for note in recent:
-    link = util.run_shell("get-link", note, "-d") + "\n\n"
+    link = util.run_shell("kofi-get-link", note, "-d") + "\n\n"
     content.append(link)
 
 n_recent.content = content

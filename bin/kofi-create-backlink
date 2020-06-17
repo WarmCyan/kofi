@@ -1,0 +1,16 @@
+#!/bin/bash
+
+current_file=$1
+dest_file=$2
+
+result=$(kofi-check-backlink $current_file $dest_file)
+
+if [[ "$result" == "no backlink" ]]; then
+	kofi-log "create-backlink" "info" "Creating backlink from $dest_file to $current_file"
+	backlink_text="$(kofi-get-link $current_file){.back}"
+	echo -e "\n$backlink_text" >> $dest_file
+	kofi-set-date "updated" $dest_file
+	echo "backlink created"
+else
+	echo $result
+fi

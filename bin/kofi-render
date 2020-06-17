@@ -1,0 +1,16 @@
+#!/bin/bash
+
+filename=$1
+outname=$(echo $filename | sed "s/\.md$/\.html/")
+
+exec 2> >(kofi-log-pipe "render" "error")
+
+#echo $outname
+kofi-log "render" "info" "Rendering $outname"
+
+kofi-run-script $filename "content"
+#refresh-expansions $filename
+#refresh-links $filename # NOTE: breaks inbox (link counts disappear)
+kofi-refresh-includes $filename
+
+pandoc -i $filename -o rendered/$outname --lua-filter=$BIN_DIR/kofi_res/links-to-html.lua --template=$BIN_DIR/kofi_res/assets/template.html --filter pandoc-include

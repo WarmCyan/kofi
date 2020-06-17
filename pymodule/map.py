@@ -23,7 +23,7 @@ class Map:
 
     def construct_map(self, root=None, ignore_recent=True, ignore_inbox=True, grab_titles=True):
         # NOTE: use root = None to construct the map of _all_ notes
-        active_dir = util.run_shell("active-dir")
+        active_dir = util.run_shell("kofi-active-dir")
         os.chdir(active_dir)
 
 
@@ -53,11 +53,11 @@ class Map:
             return False
         if filepath == "inbox.md" and ignore_inbox:
             return False
-        if util.run_shell("get-hidden", filepath) == "true":
+        if util.run_shell("kofi-get-hidden", filepath) == "true":
             return False
         
         if grab_titles:
-            title = util.run_shell("get-title", filepath)
+            title = util.run_shell("kofi-get-title", filepath)
             self.filetitles[filepath] = title
             
         if filepath not in self.links_to:

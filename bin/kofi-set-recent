@@ -13,10 +13,10 @@ new_filename=sys.argv[1]
 if new_filename == "recent.md" or new_filename == "inbox.md":
     exit()
 
-if util.run_shell("get-hidden", new_filename) == "true":
+if util.run_shell("kofi-get-hidden", new_filename) == "true":
     exit()
 
-path = util.run_shell("active-dir") + "/recent_list.json"
+path = util.run_shell("kofi-active-dir") + "/recent_list.json"
 
 recent = []
 

@@ -23,7 +23,7 @@ else:
         filename = link_pattern.match(lines[0]).group(1)
 
 # make sure any content scripts are run before loading it
-util.run_shell("run-script", filename, "content")
+util.run_shell("kofi-run-script", filename, "content")
 
 n = Note()
 n.load(filename)

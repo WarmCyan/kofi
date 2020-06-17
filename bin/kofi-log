@@ -25,5 +25,5 @@ fi
 output="$output $msg"
 output_plain="$output_plain $msg"
 
-echo -e "$output" >> $(active-dir)/log_color.log
-echo -e "$output_plain" >> $(active-dir)/log_raw.log
+echo -e "$output" >> $(kofi-active-dir)/log_color.log
+echo -e "$output_plain" >> $(kofi-active-dir)/log_raw.log

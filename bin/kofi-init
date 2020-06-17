@@ -30,4 +30,4 @@ echo $localpath > $DATA_DIR/kofi/paths/$name
 echo "Zettelkasten initialization complete"
 
 # copy over the makefile
-cp $BIN_DIR/kofi/kofi-makefile $localpath/makefile
+cp $BIN_DIR/kofi_res/kofi-makefile $localpath/makefile

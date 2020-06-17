@@ -33,7 +33,7 @@ for index, line in enumerate(n.content):
     elif end_pattern.match(line):
         finished_note = note_stack.pop()
 
-        new_content.append(util.run_shell("get-expansion", finished_note.filename) + "\n")
+        new_content.append(util.run_shell("kofi-get-expansion", finished_note.filename) + "\n")
     elif len(note_stack) == 0:
         new_content.append(line)
 

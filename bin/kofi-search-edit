@@ -2,7 +2,7 @@
 
 # opens up fzf search for a file and then opens chosen file in nvim
 
-cache_dir=$(active-dir)
+cache_dir=$(kofi-active-dir)
 pushd $cache_dir > /dev/null
 nvim $(rg . | fzf --ansi --preview "echo {} | cut -d: -f1 | xargs bat --color=always --style=header,grid" | sed -E "s/([a-zA-Z0-9\-\_\/]*):.*/\1/")
 popd > /dev/null

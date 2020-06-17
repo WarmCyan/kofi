@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cache_dir=$(kofi-active-dir)
+
+name=$(kofi-datetimestamp $cache_dir)
+desc=$1
+tags=$2
+
+cp $BIN_DIR/kofi_res/template $cache_dir/$name
+kofi-set-date "created" $cache_dir/$name
+kofi-set-date "updated" $cache_dir/$name
+kofi-log "new-note" "info" "New note $name created"
+echo $name

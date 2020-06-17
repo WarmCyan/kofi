@@ -9,7 +9,7 @@ from datetime import date
 from kofi import util
 from kofi.inbox import Inbox
 
-active_dir = util.run_shell("active-dir")
+active_dir = util.run_raw_shell("kofi-active-dir")
 os.chdir(active_dir)
 
 i = Inbox()

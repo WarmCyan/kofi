@@ -1,5 +1,3 @@
-STRT: [A] log everything +cleanup
-WAIT: subfolder all kofi bin commands +cleanup
 WAIT: server stuff in tmux +cleanup
 
 WAIT: command to copy/make a copy of a note (automatically create link/backlink)
@@ -31,6 +29,8 @@ TODO: add dates to recent page
 TODO: fix standalone link pattern :: matching in refresh-links
 
 TODO: only replace content of file with content script if it doesn't error out
+
+TODO: [A] redirect all error output to log
 
 WAIT: stats section in inbox
 
@@ -79,3 +79,5 @@ DONE: script to start server +render
 DONE: mapping choose root node +graph
 DONE: [A] add "hidden" data tag to exclude from recent and disconnected
 DONE: [A] on any includes, run any content scripts
+DONE: [A] log everything +cleanup
+DONE: subfolder all kofi bin commands +cleanup

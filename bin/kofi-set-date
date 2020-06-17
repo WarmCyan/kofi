@@ -4,7 +4,7 @@
 
 time=$(date +"%Y-%m-%d")
 
-set-meta $2 "date-$1" $time
+kofi-set-meta $2 "date-$1" $time
 
 # escaped_time=$(echo $time | sed -e 's/[\/&]/\\&/g')
 

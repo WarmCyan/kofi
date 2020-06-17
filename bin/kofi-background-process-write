@@ -1,0 +1,30 @@
+#!/bin/bash
+
+#> Any longer-running background tasks that should run on file write go here (to avoid editor delay.)
+#>
+#> * Updates recent notes
+#> * Updates inbox
+#> * Runs any output script
+#> * Renders given file
+#> * Reloads qutebrowser
+#>
+#> Arguments:
+#> 1. filename of the file that was just changed
+#>
+#> Examples:
+#> ```bash
+#> nohup background-process-write $filename &
+#> ```
+
+filename=$1
+
+kofi-log "background-process-write" "info" "Starting background process write for $1"
+
+exec 2> >(kofi-log-pipe "background-process-write" "error")
+
+kofi-set-recent $filename
+kofi-create-recent
+kofi-update-inbox
+kofi-run-script $filename "output"
+make | kofi-log-pipe "makefile" "info" # for whatever reason, redirecting the ouput is important or it somehow doesn't run??
+nohup qutebrowser ':reload' 2> /dev/null &

@@ -24,13 +24,13 @@ for index, line in enumerate(n.content):
     if standalone_link_pattern.match(line):
         match = standalone_link_pattern.match(line)
         filename = match.group(2)
-        new_link = util.run_shell("get-link", filename, "-d")
+        new_link = util.run_shell("kofi-get-link", filename, "-d")
         line = line.replace(match.group(1), new_link)
         n.content[index] = line
     elif link_pattern.match(line):
         match = link_pattern.match(line)
         filename = match.group(2)
-        new_link = util.run_shell("get-link", filename)
+        new_link = util.run_shell("kofi-get-link", filename)
         line = line.replace(match.group(1), new_link)
         n.content[index] = line
     elif start_pattern.match(line):

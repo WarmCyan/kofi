@@ -68,7 +68,8 @@ for index, line in enumerate(lines):
 for n in notes:
     #name = subprocess.run(["new-note"], shell=True, stdout=subprocess.PIPE).stdout.decode('ascii')
     #name = subprocess.run(["new-note"], stdout=subprocess.PIPE).stdout.decode('ascii').rstrip()
-    name = util.run_shell("new-note")
+    name = util.run_shell("kofi-new-note")
+    util.log(f"Creating new expanded note {name}", "create-expanded")
 
     # load from that new filename just so we get the date stuff
     created_note = Note()

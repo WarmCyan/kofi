@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pushd $(active-dir) > /dev/null
+pushd $(kofi-active-dir) > /dev/null
 
 # https://stackoverflow.com/questions/3878624/how-do-i-programmatically-determine-if-there-are-uncommitted-changes
 git update-index --refresh

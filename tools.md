@@ -1,6 +1,9 @@
 
 # Kofi Tools Documentation
-## `active-dir`
+## `kofi`
+
+
+## `kofi-active-dir`
 
 Prints out the directory of the currently active zettelkasten
 
@@ -17,7 +20,7 @@ popd > /dev/null
 $ kofi active-dir
 /home/dwl/tmp/testzettel
 ```
-## `background-process-write`
+## `kofi-background-process-write`
 
 Any longer-running background tasks that should run on file write go here (to avoid editor delay.)
 
@@ -34,111 +37,111 @@ Examples:
 ```bash
 nohup background-process-write $filename &
 ```
-## `check-backlink`
+## `kofi-check-backlink`
 
 
-## `create-backlink`
+## `kofi-create-backlink`
 
 
-## `create-expanded`
+## `kofi-create-expanded`
 
 
-## `create-map`
+## `kofi-create-map`
 
 
-## `create-note`
+## `kofi-create-note`
 
 
-## `create-recent`
+## `kofi-create-recent`
 
 
-## `datetimestamp`
+## `kofi-datetimestamp`
 
 
-## `fold-expansion`
+## `kofi-fold-expansion`
 
 
-## `get-expansion`
+## `kofi-get-expansion`
 
 
-## `get-hidden`
+## `kofi-get-hidden`
 
 
-## `get-link`
+## `kofi-get-link`
 
 
-## `get-title`
+## `kofi-get-title`
 
 
 ## `kofi-init`
 
 
+## `kofi-log`
+
+
+## `kofi-log-pipe`
+
+
 ## `kofi-ls`
+
+
+## `kofi-new-note`
+
+
+## `kofi-open`
+
+
+## `kofi-output-map`
+
+
+## `kofi-process-write`
+
+
+## `kofi-propagate-expanded`
+
+
+## `kofi-refresh-expansions`
+
+
+## `kofi-refresh-includes`
+
+
+## `kofi-refresh-links`
+
+
+## `kofi-render`
+
+
+## `kofi-render-map`
+
+
+## `kofi-run-script`
+
+
+## `kofi-search-edit`
+
+
+## `kofi-serve`
 
 
 ## `kofi-set`
 
 
+## `kofi-set-date`
+
+
+## `kofi-set-meta`
+
+
+## `kofi-set-recent`
+
+
 ## `kofi-sync`
 
 
-## `log`
+## `kofi-update-inbox`
 
 
-## `log-pipe`
-
-
-## `new-note`
-
-
-## `open`
-
-
-## `output-map`
-
-
-## `process-write`
-
-
-## `propagate-expanded`
-
-
-## `refresh-expansions`
-
-
-## `refresh-includes`
-
-
-## `refresh-links`
-
-
-## `render`
-
-
-## `render-map`
-
-
-## `run-script`
-
-
-## `search-edit`
-
-
-## `serve`
-
-
-## `set-date`
-
-
-## `set-meta`
-
-
-## `set-recent`
-
-
-## `update-inbox`
-
-
-## `write-note-content`
+## `kofi-write-note-content`
 
 
