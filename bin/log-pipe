@@ -1,0 +1,2 @@
+#!/bin/bash
+# takes in a log message on stdin and outputs it

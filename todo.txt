@@ -1,4 +1,4 @@
-WAIT: [A] log everything +cleanup
+STRT: [A] log everything +cleanup
 WAIT: subfolder all kofi bin commands +cleanup
 WAIT: server stuff in tmux +cleanup
 
@@ -29,6 +29,8 @@ TODO: add link to recent page in inbox
 TODO: add dates to recent page
 
 TODO: fix standalone link pattern :: matching in refresh-links
+
+WAIT: stats section in inbox
 
 WAIT: way to dilneate linking versus expansions versus inclusion in diagrams
 

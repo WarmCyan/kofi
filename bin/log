@@ -1,0 +1,29 @@
+#!/bin/bash
+
+time=$(date +'%Y-%m-%d %H:%M:%S')
+src=$1
+level=$2
+msg="${@:3}"
+
+output="$time::$src::"
+output_plain="$output"
+
+if [[ "$level" == "info" ]]
+then
+	output_plain="${output}[INFO]"
+	output="${output}${C_CYAN_L}[INFO]${C_RESET}"
+elif [[ "$level" == "warn" ]]
+then
+	output_plain="${output}[WARN]"
+	output="${output}${C_YELLOW_L}[WARN]${C_RESET}"
+elif [[ "$level" == "error" ]]
+then
+	output_plain="${output}[ERROR]"
+	output="${output}${C_RED_L}[ERROR]${C_RESET}"
+fi
+
+output="$output $msg"
+output_plain="$output_plain $msg"
+
+echo -e "$output" >> $(active-dir)/log_color.log
+echo -e "$output_plain" >> $(active-dir)/log_raw.log
