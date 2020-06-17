@@ -1,4 +1,0 @@
-#!/bin/bash
-cmd=$1
-
-$BIN_DIR/kofi-bin/$1 ${@:2}

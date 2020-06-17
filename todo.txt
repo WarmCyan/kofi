@@ -11,6 +11,7 @@ WAIT: vim script to change a link to an include and vice versa +vim
 
 WAIT: inserting "#" autocomplete for tags +tags
 WAIT: tag search script that compiles list of links to all results +tags
+TODO: add tag algebra options to mapping +tags
 
 TODO: references?!?!?!?
 

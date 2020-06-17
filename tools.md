@@ -1,11 +1,5 @@
 
 # Kofi Tools Documentation
-## `kn`
-
-
-## `kofi`
-
-
 ## `kofi-active-dir`
 
 Prints out the directory of the currently active zettelkasten.
@@ -173,8 +167,5 @@ backlink created
 
 
 ## `kofi-write-note-content`
-
-
-## `kse`
 
 
