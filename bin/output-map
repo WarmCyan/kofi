@@ -1,5 +1,7 @@
 #!/bin/python3
 
+# NOTE: this file is testing only
+
 from kofi.map import Map
 
 m = Map()

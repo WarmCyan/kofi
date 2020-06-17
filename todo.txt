@@ -16,11 +16,12 @@ WAIT: inserting "#" autocomplete for tags +tags
 TODO: references?!?!?!?
 
 TODO: script to fzf search and then open in browser +render
-TODO: mapping choose root node +graph
 
 TODO: add droidsansmono font +render
 TODO: mobile css +render
 TODO: favicon +render
+
+TODO: on any includes, run any content scripts
 
 WAIT: command to send editor to browser and vice versa
 
@@ -62,3 +63,4 @@ DONE: kofi sync (and include refreshing makefile?)
 DONE: python pandoc filter to change markdown links into html links +render
 DONE: command to open/edit inbox
 DONE: script to start server +render
+DONE: mapping choose root node +graph

@@ -73,3 +73,15 @@ a:visited
 {
 	content: "backlink:"
 }
+
+svg text { fill: #eb6b34; }
+svg .edge path { stroke: white; }
+svg .edge polygon
+{
+	fill: white;
+	stroke: white;
+}
+svg .node ellipse
+{
+	stroke: white;
+}

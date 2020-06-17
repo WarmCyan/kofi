@@ -4,6 +4,7 @@ import re
 
 from kofi import util
 
+LINK_PATTERN = re.compile("\[.*\]\((.*)\)")
 
 class Map:
     def __init__(self):
@@ -18,40 +19,67 @@ class Map:
         )  # key is a file, value is array of files that link _to_ this file
 
         self.filetitles = {}
+        
 
-    def construct_map(self, ignore_recent=True, ignore_inbox=True, grab_titles=True):
+    def construct_map(self, root=None, ignore_recent=True, ignore_inbox=True, grab_titles=True):
+        # NOTE: use root = None to construct the map of _all_ notes
         active_dir = util.run_shell("active-dir")
         os.chdir(active_dir)
 
-        link_pattern = re.compile("\[.*\]\((.*)\)")
 
-        for filepath in glob.iglob("*.md"):
-            if filepath == "recent.md" and ignore_recent:
-                continue
-            if filepath == "inbox.md" and ignore_inbox:
-                continue
+        if root is None:
+            for filepath in glob.iglob("*.md"):
+                if filepath == "recent.md" and ignore_recent:
+                    continue
+                if filepath == "inbox.md" and ignore_inbox:
+                    continue
 
-            if grab_titles:
-                title = util.run_shell("get-title", filepath)
-                self.filetitles[filepath] = title
+                if grab_titles:
+                    title = util.run_shell("get-title", filepath)
+                    self.filetitles[filepath] = title
 
-            # make sure the respective dictionary keys exist
-            if filepath not in self.links_to:
-                self.links_to[filepath] = []
+                # make sure the respective dictionary keys exist
+                if filepath not in self.links_to:
+                    self.links_to[filepath] = []
+                    
+                if filepath not in self.links_from:
+                    self.links_from[filepath] = []
                 
-            if filepath not in self.links_from:
-                self.links_from[filepath] = []
-            
-            # scan the file for links
-            with open(filepath, "r") as infile:
+                # scan the file for links
+                self.parse_file_links(filepath)
+        else:
+            if grab_titles:
+                title = util.run_shell("get-title", root)
+                self.filetitles[root] = title
+                
+            with open(root, "r") as infile:
                 contents = infile.read()
 
-                matches = re.findall(link_pattern, contents)
+                matches = re.findall(LINK_PATTERN, contents)
                 for match in matches:
-                    #print(match)
                     link = match
-                    #link = match.group(1)
-                    self.create_link(filepath, link)
+                    self.create_link(root, link)
+                    
+                    if grab_titles:
+                        title = util.run_shell("get-title", link)
+                        self.filetitles[link] = title
+                    
+                    # go one level deep
+                    self.parse_file_links(link)
+                
+    def parse_file_links(self, filepath, grab_titles=True):
+        with open(filepath, "r") as infile:
+            contents = infile.read()
+
+            matches = re.findall(LINK_PATTERN, contents)
+            for match in matches:
+                link = match
+                self.create_link(filepath, link)
+                
+                if grab_titles:
+                    title = util.run_shell("get-title", link)
+                    self.filetitles[link] = title
+        
 
     # file_from is a
     # file_to is b
@@ -71,7 +99,7 @@ class Map:
 
 
     def to_graphviz(self):
-        lines = ["strict digraph G", "{"]
+        lines = ["strict digraph G", "{", "bgcolor=\"transparent\""]
         
         for item in self.filetitles:
             link = item[:item.rfind(".")] + ".html"

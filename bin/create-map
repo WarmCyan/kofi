@@ -1,0 +1,13 @@
+#!/bin/python3
+
+import sys
+
+from kofi.map import Map
+
+root = sys.argv[1]
+
+m = Map()
+m.construct_map(root=root)
+result = m.to_graphviz()
+
+print(result)
