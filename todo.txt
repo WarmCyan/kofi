@@ -25,6 +25,7 @@ TODO: add link to recent page in inbox
 TODO: add dates to recent page
 
 TODO: fix standalone link pattern :: matching in refresh-links
+WAIT: tool to refresh everything in a file (don't do until :: fixed)
 
 TODO: only replace content of file with content script if it doesn't error out
 TODO: there are still update problems where if I update a note that is expanded elsewhere, the expansion doesn't update until that file is saved
