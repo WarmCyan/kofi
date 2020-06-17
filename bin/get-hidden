@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#hidden=$(cat $1 | sed -En "4s/hidden:\ (.*)$/\\1/p")
+
+if head -n 15 $1 | grep -q "hidden: True" 
+then
+	echo "true"
+else
+	echo "false"
+fi

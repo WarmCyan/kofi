@@ -29,24 +29,9 @@ class Map:
 
         if root is None:
             for filepath in glob.iglob("*.md"):
-                if filepath == "recent.md" and ignore_recent:
-                    continue
-                if filepath == "inbox.md" and ignore_inbox:
-                    continue
-
-                if grab_titles:
-                    title = util.run_shell("get-title", filepath)
-                    self.filetitles[filepath] = title
-
-                # make sure the respective dictionary keys exist
-                if filepath not in self.links_to:
-                    self.links_to[filepath] = []
-                    
-                if filepath not in self.links_from:
-                    self.links_from[filepath] = []
-                
-                # scan the file for links
-                self.parse_file_links(filepath)
+                if self.handle_path(filepath, ignore_recent, ignore_inbox, grab_titles):
+                    # scan the file for links
+                    self.parse_file_links(filepath)
         else:
             self.handle_path(root)
                 
@@ -56,15 +41,21 @@ class Map:
                 matches = re.findall(LINK_PATTERN, contents)
                 for match in matches:
                     link = match
-                    self.create_link(root, link)
                     
-                    self.handle_path(link)
-                    
-                    # go one level deep
-                    self.parse_file_links(link)
+                    if self.handle_path(link, ignore_recent, ignore_inbox, grab_titles):
+                        self.create_link(root, link)
+                        # go one level deep
+                        self.parse_file_links(link)
 
-    def handle_path(self, filepath, grab_titles=True):
+    def handle_path(self, filepath, ignore_recent=True, ignore_inbox=True, grab_titles=True):
         """ Go through the standard things that each file needs to go through """
+        if filepath == "recent.md" and ignore_recent:
+            return False
+        if filepath == "inbox.md" and ignore_inbox:
+            return False
+        if util.run_shell("get-hidden", filepath) == "true":
+            return False
+        
         if grab_titles:
             title = util.run_shell("get-title", filepath)
             self.filetitles[filepath] = title
@@ -74,6 +65,8 @@ class Map:
             
         if filepath not in self.links_from:
             self.links_from[filepath] = []
+
+        return True
             
                 
     def parse_file_links(self, filepath, grab_titles=True):
@@ -83,9 +76,8 @@ class Map:
             matches = re.findall(LINK_PATTERN, contents)
             for match in matches:
                 link = match
-                self.create_link(filepath, link)
-                
-                self.handle_path(link)
+                if self.handle_path(link):
+                    self.create_link(filepath, link)
         
 
     # file_from is a

@@ -64,3 +64,4 @@ DONE: python pandoc filter to change markdown links into html links +render
 DONE: command to open/edit inbox
 DONE: script to start server +render
 DONE: mapping choose root node +graph
+DONE: [A] add "hidden" data tag to exclude from recent and disconnected
