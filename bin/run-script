@@ -12,7 +12,7 @@ script_type = sys.argv[2]
 
 n = Note()
 n.load(filename)
-if n.data[f"{script_type}-script"]:
+if f"{script_type}-script" in n.data:
     script = n.data[f"{script_type}-script"]
 
     # set environment variables that the script line can reference

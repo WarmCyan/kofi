@@ -1,0 +1,26 @@
+#!/bin/bash
+
+pushd $(active-dir) > /dev/null
+
+# https://stackoverflow.com/questions/3878624/how-do-i-programmatically-determine-if-there-are-uncommitted-changes
+git update-index --refresh
+untracked=$(git diff-index --quiet HEAD -- || echo "untracked")
+
+if [[ "$untracked" == "untracked" ]]
+then
+	echo "Committing changes..."
+	git add -A
+	git commit -am "Note sync from $(hostname)"
+fi
+
+if grep -q "\[remote \"origin\"\]" .git/config
+then
+	echo "Syncing with remote..."
+	git-check-ssh
+	git pull
+	git push -u origin master
+else
+	echo "No remote, no push necessary."
+fi
+
+popd > /dev/null

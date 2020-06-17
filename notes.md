@@ -95,3 +95,12 @@ inbox:
 * recent
 * any else
 * stats?
+
+
+Big things still needed:
+* [A] Reference management
+* [A] Serving/starting
+* [B] Better mapping functions
+* [B] Cleanup (subfolders/logging)
+* Stats in inbox
+* Tags

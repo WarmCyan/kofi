@@ -1,31 +1,25 @@
-WAIT: [A] log everything
-WAIT: subfolder all kofi bin commands
+WAIT: [A] log everything +cleanup
+WAIT: subfolder all kofi bin commands +cleanup
+
 WAIT: command to copy/make a copy of a note (automatically create link/backlink)
 
-TODO: :kofinew vim command (simply calls new-note) +vim
-TODO: search-edit for inside of vim +vim
-TODO: script/vim handler to reverse backlink (add primary link to target, and backlink in current) +vim
-
-TODO: allow regular links to count as backlink??? (yes, and then backlink with .back just means never explicitly incorporated into text)
-TODO: inserting "#" autocomplete for tags
-
-TODO: determine other todos for searches, reference management, and inbox and workspace management
-TODO: command to open/edit inbox
-
-TODO: make zettelkasten notes go into separate folder?
-STRT: kofi sync (and include refreshing makefile?)
-
-TODO: command to send editor to browser and vice versa
-
-WAIT: python pandoc filter to change markdown links into html links +render
-WAIT: script to start server +render
-WAIT: script to fzf search and then open in browser +render
-
+WAIT: :kofinew vim command (simply calls new-note) +vim
+WAIT: search-edit for inside of vim +vim
+WAIT: script/vim handler to reverse backlink (add primary link to target, and backlink in current) +vim
 WAIT: vim thing to directly call get-link on md filename (expand) +vim
 WAIT: vim copy filename +vim
 WAIT: shortcut to move cursor to filename in next link +vim
 
-WAIT: ability to specify depth of mapping +graph
+WAIT: inserting "#" autocomplete for tags +tags
+
+TODO: command to open/edit inbox
+TODO: references?!?!?!?
+
+STRT: script to start server +render
+TODO: script to fzf search and then open in browser +render
+TODO: mapping choose root node +graph
+
+WAIT: command to send editor to browser and vice versa
 
 DONE: script to get text line TOC reference for filename
 DONE: zettelkasten initialization and config setup script
@@ -61,3 +55,5 @@ DONE: content script execution
 DONE: output script execution
 DONE: add bat preview support to vim fzf search +vim
 DONE: tool to ls and set zettelkasten
+DONE: kofi sync (and include refreshing makefile?)
+DONE: python pandoc filter to change markdown links into html links +render
