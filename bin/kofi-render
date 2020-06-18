@@ -5,7 +5,6 @@ outname=$(echo $filename | sed "s/\.md$/\.html/")
 
 exec 2> >(kofi-log-pipe "render" "error")
 
-#echo $outname
 kofi-log "render" "info" "Rendering $outname"
 
 kofi-run-script $filename "content"
@@ -13,4 +12,5 @@ kofi-run-script $filename "content"
 #refresh-links $filename # NOTE: breaks inbox (link counts disappear)
 kofi-refresh-includes $filename
 
-pandoc -i $filename -o rendered/$outname --lua-filter=$BIN_DIR/kofi_res/links-to-html.lua --template=$BIN_DIR/kofi_res/assets/template.html --filter pandoc-include
+
+pandoc -i $filename -o rendered/$outname --lua-filter=$BIN_DIR/kofi_res/links-to-html.lua --template=$BIN_DIR/kofi_res/assets/template.html --filter pandoc-include --filter=pandoc-citeproc --metadata bibliography=references.bib --metadata citation-style=$BIN_DIR/kofi_res/ieee.csl --metadata reference-section-title="References" --metadata link-citations="True"

@@ -17,7 +17,7 @@ TODO: add tag algebra options to mapping +tags
 TODO: create images and scripts directories on init
 TODO: are multiple links between two files handled correctly?
 
-TODO: references?!?!?!?
+TODO: references finder/autocomplete +references
 
 TODO: script to fzf search and then open in browser +render
 TODO: add droidsansmono font +render
@@ -91,3 +91,4 @@ DONE: [A] redirect all error output to log
 DONE: server stuff in tmux +cleanup
 DONE: start server and log
 DONE: kn and kse should be aliases in bashrc, not "tools"
+DONE: add bib to render

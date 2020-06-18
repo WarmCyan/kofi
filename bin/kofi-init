@@ -31,3 +31,4 @@ echo "Zettelkasten initialization complete"
 
 # copy over the makefile
 cp $BIN_DIR/kofi_res/kofi-makefile $localpath/makefile
+touch $localpath/references.bib
