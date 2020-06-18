@@ -4,6 +4,7 @@
 # assume filename passed in on $1
 # description flag will be at $2
 
+pushd $(kofi-active-dir) > /dev/null
 
 name=$(cat $1 | sed -En "4s/title:\ (.*)$/\\1/p")
 desc=$(cat $1 | sed -En "7s/description:\ (.*)$/\\1/p")
@@ -14,3 +15,5 @@ if [[ "$2" == "-d" ]]; then
 else
 	echo "[$name]($1)"
 fi
+
+popd > /dev/null

@@ -10,13 +10,15 @@ from kofi import util
 
 filename=sys.argv[1]
 
+util.log(f"Refreshing links for {filename}", "refresh-links")
+
 n = Note()
 n.load(filename)
 
 # loop through all content lines
 # NOTE: I don't think the :: part of the standalone link pattern is working
 standalone_link_pattern = re.compile("(\[.*\]\((.*)\)\s\-.*)(::.*)*")
-link_pattern = re.compile(".*(\[.*\]\((.*)\)).*")
+link_pattern = re.compile(".*(\[.*\]\((.*.md)\)).*")
 start_pattern = re.compile("^<!-- <([\w\d\s\-\_]*)\|(.+)> -->$")
 end_pattern = re.compile("^<!-- </([\w\d\s\-\_]*)\|(.+)> -->$")
 

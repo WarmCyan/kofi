@@ -24,6 +24,7 @@ TODO: add droidsansmono font +render
 TODO: mobile css +render
 TODO: favicon +render
 TODO: syntax highlighting in ``` code +render
+TODO: home (inbox) link +render
 
 TODO: refresh content scripts (run on all) [and then refresh expansions]
 
@@ -38,6 +39,8 @@ TODO: only replace content of file with content script if it doesn't error out
 TODO: there are still update problems where if I update a note that is expanded elsewhere, the expansion doesn't update until that file is saved
 
 TODO: search fzf window that keeps opening itself/stays open, but selected things open in qutebrowser 
+
+TODO: if adding in maps is common enough, might be worth adding a script to go through creating note with content-script and adding the include line
 
 WAIT: command to send editor to browser and vice versa
 
