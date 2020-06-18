@@ -4,7 +4,7 @@ import re
 
 from kofi import util
 
-LINK_PATTERN = re.compile("\[.*\]\((.*)\)")
+LINK_PATTERN = re.compile("\[.*\]\((.*\.md)\)")
 
 class Map:
     def __init__(self):

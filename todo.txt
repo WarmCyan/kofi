@@ -11,7 +11,11 @@ WAIT: vim script to change a link to an include and vice versa +vim
 
 WAIT: inserting "#" autocomplete for tags +tags
 WAIT: tag search script that compiles list of links to all results +tags
+WAIT: way to dilneate linking versus expansions versus inclusion in diagrams +render
 TODO: add tag algebra options to mapping +tags
+
+TODO: create images and scripts directories on init
+TODO: are multiple links between two files handled correctly?
 
 TODO: references?!?!?!?
 
@@ -23,8 +27,9 @@ TODO: syntax highlighting in ``` code +render
 
 TODO: refresh content scripts (run on all) [and then refresh expansions]
 
-TODO: add link to recent page in inbox
-TODO: add dates to recent page
+WAIT: stats section in inbox +inbox
+TODO: add link to recent page in inbox +inbox
+TODO: add dates to recent page 
 
 TODO: fix standalone link pattern :: matching in refresh-links
 WAIT: tool to refresh everything in a file (don't do until :: fixed)
@@ -32,12 +37,7 @@ WAIT: tool to refresh everything in a file (don't do until :: fixed)
 TODO: only replace content of file with content script if it doesn't error out
 TODO: there are still update problems where if I update a note that is expanded elsewhere, the expansion doesn't update until that file is saved
 
-TODO: kn and kse should be aliases in bashrc, not "tools"
-
-
-WAIT: stats section in inbox
-
-WAIT: way to dilneate linking versus expansions versus inclusion in diagrams
+TODO: search fzf window that keeps opening itself/stays open, but selected things open in qutebrowser 
 
 WAIT: command to send editor to browser and vice versa
 
@@ -87,3 +87,4 @@ DONE: subfolder all kofi bin commands +cleanup
 DONE: [A] redirect all error output to log
 DONE: server stuff in tmux +cleanup
 DONE: start server and log
+DONE: kn and kse should be aliases in bashrc, not "tools"
