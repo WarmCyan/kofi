@@ -1,0 +1,3 @@
+#!/bin/bash
+
+rclone sync dwlcloud:kofi-primary-render $(kofi-active-dir)/rendered --progress

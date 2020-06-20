@@ -92,3 +92,4 @@ DONE: server stuff in tmux +cleanup
 DONE: start server and log
 DONE: kn and kse should be aliases in bashrc, not "tools"
 DONE: add bib to render
+TODO: [A] tag strings being deleted +tags
