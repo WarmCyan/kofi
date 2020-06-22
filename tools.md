@@ -66,7 +66,15 @@ backlink created
 ```
 ## `kofi-create-expanded`
 
+Takes any new note expansion syntax, creates the new notes, and replaces syntax in original file.
 
+**Arguments:**
+1. The filename to check for new expansions.
+
+**Examples:**
+```
+$ kofi-create-expanded $current_file
+```
 ## `kofi-create-map`
 
 
@@ -134,6 +142,12 @@ backlink created
 
 
 ## `kofi-render-map`
+
+
+## `kofi-render-sync-down`
+
+
+## `kofi-render-sync-up`
 
 
 ## `kofi-run-script`

@@ -1,3 +1,10 @@
+TODO: [A] mobile css +render
+TODO: [A] separate public render +render
+TODO: [A] tag strings being deleted +tags
+
+TODO: [B] create images and scripts directories on init
+
+
 STRT: bin script documentation +docs
 WAIT: command to copy/make a copy of a note (automatically create link/backlink)
 
@@ -11,24 +18,22 @@ WAIT: vim script to change a link to an include and vice versa +vim
 
 WAIT: inserting "#" autocomplete for tags +tags
 WAIT: tag search script that compiles list of links to all results +tags
-WAIT: way to dilneate linking versus expansions versus inclusion in diagrams +render
 TODO: add tag algebra options to mapping +tags
+WAIT: way to dilneate linking versus expansions versus inclusion in diagrams +render
 
-TODO: create images and scripts directories on init
 TODO: are multiple links between two files handled correctly?
 
 TODO: references finder/autocomplete +references
 
 TODO: script to fzf search and then open in browser +render
 TODO: add droidsansmono font +render
-TODO: mobile css +render
 TODO: favicon +render
 TODO: syntax highlighting in ``` code +render
-TODO: home (inbox) link +render
+TODO: [A] home (inbox) link +render
 
 TODO: refresh content scripts (run on all) [and then refresh expansions]
 
-WAIT: stats section in inbox +inbox
+WAIT: [C] stats section in inbox +inbox
 TODO: add link to recent page in inbox +inbox
 TODO: add dates to recent page 
 
@@ -92,4 +97,3 @@ DONE: server stuff in tmux +cleanup
 DONE: start server and log
 DONE: kn and kse should be aliases in bashrc, not "tools"
 DONE: add bib to render
-TODO: [A] tag strings being deleted +tags
