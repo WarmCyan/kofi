@@ -24,6 +24,7 @@ exec 2> >(kofi-log-pipe "background-process-write" "error")
 
 kofi-set-recent $filename
 kofi-create-recent
+kofi-set-public $filename
 kofi-update-inbox
 kofi-run-script $filename "output"
 make | kofi-log-pipe "makefile" "info" # for whatever reason, redirecting the ouput is important or it somehow doesn't run??

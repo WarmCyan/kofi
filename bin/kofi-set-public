@@ -1,0 +1,34 @@
+#!/bin/python3
+
+""" Adds or removes from public list """
+
+import json
+import os.path
+import sys
+
+from kofi import util
+
+filename=sys.argv[1]
+
+if filename == "recent.md" or filename == "inbox.md":
+    exit()
+
+active_dir = util.run_shell("kofi-active-dir")
+os.chdir(active_dir)
+
+path = active_dir + "/public_list.json"
+if os.path.exists(path):
+    with open(path, 'r') as infile:
+        public = json.load(infile)
+else:
+    public = []
+
+if util.run_shell("kofi-get-property", "public", filename) == "true":
+    if filename not in public:
+        public.append(filename)
+else:
+    if filename in public:
+        public.remove(filename)
+
+with open(path, 'w') as outfile:
+    json.dump(public, outfile)

@@ -1,0 +1,29 @@
+#!/bin/python3
+
+from shutil import copyfile
+import os
+import json
+
+from kofi import util
+
+util.log("Cleaning public folder", "render-public")
+util.run_shell("kofi-clean-public")
+
+active_dir = util.run_shell("kofi-active-dir")
+os.chdir(active_dir)
+
+path = active_dir + "/public_list.json"
+
+if os.path.exists(path):
+    with open(path, 'r') as infile:
+        public = json.load(infile)
+else:
+    public = []
+
+util.log("Copying public zettels", "render-public")
+for filename in public:
+    # html version
+    print(filename)
+    html = filename.replace(".md", ".html")
+    print(html)
+    copyfile(f"rendered/{html}", f"public/{html}")

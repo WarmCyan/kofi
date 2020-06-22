@@ -53,7 +53,7 @@ class Map:
             return False
         if filepath == "inbox.md" and ignore_inbox:
             return False
-        if util.run_shell("kofi-get-hidden", filepath) == "true":
+        if util.run_shell("kofi-get-property", "hidden", filepath) == "true":
             return False
         
         if grab_titles:

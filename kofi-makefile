@@ -1,7 +1,7 @@
 INPUTS := $(wildcard *.md)
 TARGETS := $(patsubst %.md,rendered/%.html,$(notdir $(INPUTS)))
 
-all: $(TARGETS) rendered/res .gitignore imagecopy
+all: $(TARGETS) rendered/res .gitignore imagecopy public/res
 	@kofi-log "makefile" "info" "Make complete"
 
 rendered/%.html: %.md | rendered
@@ -13,8 +13,16 @@ rendered:
 rendered/res: | rendered
 	@cp -r $(BIN_DIR)/kofi_res/assets/res rendered/res
 
+public: 
+	@mkdir -p public
+	
+public/res: | public
+	@cp -r $(BIN_DIR)/kofi_res/assets/res public/res
+
 .gitignore: $(BIN_DIR)/kofi_res/gitignore
 	@cp $(BIN_DIR)/kofi_res/gitignore .gitignore
+
+# TODO: need an imagecopy for public
 
 images:
 	@mkdir -p images

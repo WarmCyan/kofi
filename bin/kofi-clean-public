@@ -1,0 +1,2 @@
+#!/bin/bash
+rm $(kofi-active-dir)/public/*.html
