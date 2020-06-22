@@ -29,10 +29,7 @@ class Note:
 
         yaml_lines = file_lines[yaml_start + 1 : yaml_end]
         self.data = util.read_yaml_metadata(yaml_lines)
-        util.log(f"data: {self.data}", "note")
-        util.log(f"pretags: {self.data['tags']}", "note")
         self.data["tags"] = util.from_tag_string(self.data["tags"])
-        util.log(f"tags: {self.data['tags']}", "note")
 
         # load content
         for line in file_lines[yaml_end + 1 :]:

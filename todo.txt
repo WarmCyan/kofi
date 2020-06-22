@@ -1,6 +1,3 @@
-TODO: [A] mobile css +render
-TODO: [A] tag strings being deleted +tags
-
 TODO: [B] create images and scripts directories on init
 
 STRT: bin script documentation +docs
@@ -14,6 +11,8 @@ WAIT: vim thing to directly call get-link on md filename (expand) +vim
 WAIT: vim copy filename +vim
 WAIT: shortcut to move cursor to filename in next link +vim
 WAIT: vim script to change a link to an include and vice versa +vim
+TODO: faster way to add link of current note to searching other note (a reverse backlink via search interface) +vim
+TODO: toggle for enabling/disabling extension (add/remove the <>) +vim
 
 WAIT: inserting "#" autocomplete for tags +tags
 WAIT: tag search script that compiles list of links to all results +tags
@@ -29,6 +28,8 @@ TODO: add droidsansmono font +render
 TODO: favicon +render
 TODO: syntax highlighting in ``` code +render
 TODO: [A] home (inbox) link +render
+TODO: pandoc filter to wrap expansions in classed div +render
+TODO: javascript in rendered version to allow expansion of links (makes post request) +render
 
 TODO: refresh content scripts (run on all) [and then refresh expansions]
 
@@ -47,6 +48,9 @@ TODO: search fzf window that keeps opening itself/stays open, but selected thing
 TODO: if adding in maps is common enough, might be worth adding a script to go through creating note with content-script and adding the include line
 
 WAIT: command to send editor to browser and vice versa
+TODO: command to run a zettel script
+
+
 
 DONE: script to get text line TOC reference for filename
 DONE: zettelkasten initialization and config setup script
@@ -97,3 +101,5 @@ DONE: start server and log
 DONE: kn and kse should be aliases in bashrc, not "tools"
 DONE: add bib to render
 DONE: [A] separate public render +render
+DONE: [A] tag strings being deleted +tags
+DONE: [A] mobile css +render
