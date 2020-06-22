@@ -40,7 +40,7 @@ def from_tag_string(string):
     if string is None:
         return []
     
-    tags = string.split("#")
+    tags = string.split("+")
     
     # strip empty spaces and any blank tags from split
     tags = [tag.strip() for tag in tags if tag]
@@ -48,10 +48,10 @@ def from_tag_string(string):
 
 
 def to_tag_string(tags):
-    """ Returns a #string #like #this """
+    """ Returns a +string +like +this """
     line = ""
     for tag in tags:
-        line += "#" + tag
+        line += "+" + tag
 
     return line.strip()
 
