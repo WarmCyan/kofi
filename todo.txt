@@ -1,8 +1,27 @@
-TODO: [B] create images and scripts directories on init
+TODO: [A] faster way to add link of current note to searching other note (a reverse backlink via search interface) +vim
+TODO: [A] references finder/autocomplete +references
+
+TODO: [B] add droidsansmono font +render
+TODO: [B] tool to collect array of notes based on tag algebra +tags +tool
+TODO: [B] pandoc filter to wrap expansions in classed div +render
+
+TODO: [C] stats section in inbox +inbox
+TODO: [C] add link to recent page in inbox +inbox
+TODO: [C] home (inbox) link +render
+TODO: [C] create images and scripts directories on init
+
+TODO: [D] command to run a zettel script +tool
+TODO: [D] script to fzf search and then open in browser +render
+
+WAIT: add dates to recent page
+WAIT: fix standalone link pattern :: matching in refresh-links
+WAIT: are multiple links between two files handled correctly?
+WAIT: only replace content of file with content script if it doesn't error out
+WAIT: there are still update problems where if I update a note that is expanded elsewhere, the expansion doesn't update until that file is saved
+WAIT: if adding in maps is common enough, might be worth adding a script to go through creating note with content-script and adding the include line
 
 STRT: bin script documentation +docs
 WAIT: list the tool areas/connections +docs
-WAIT: command to copy/make a copy of a note (automatically create link/backlink)
 
 WAIT: :kofinew vim command (simply calls new-note) +vim
 WAIT: search-edit for inside of vim +vim
@@ -11,46 +30,22 @@ WAIT: vim thing to directly call get-link on md filename (expand) +vim
 WAIT: vim copy filename +vim
 WAIT: shortcut to move cursor to filename in next link +vim
 WAIT: vim script to change a link to an include and vice versa +vim
-TODO: faster way to add link of current note to searching other note (a reverse backlink via search interface) +vim
-TODO: toggle for enabling/disabling extension (add/remove the <>) +vim
+WAIT: toggle for enabling/disabling extension (add/remove the <>) +vim
 
-WAIT: inserting "#" autocomplete for tags +tags
+WAIT: inserting "+" autocomplete for tags +tags
 WAIT: tag search script that compiles list of links to all results +tags
-TODO: add tag algebra options to mapping +tags
+WAIT: add tag algebra options to mapping +tags
+
+WAIT: favicon +render
+WAIT: syntax highlighting in ``` code +render
+WAIT: javascript in rendered version to allow expansion of links (makes post request) +render
 WAIT: way to dilneate linking versus expansions versus inclusion in diagrams +render
 
-TODO: are multiple links between two files handled correctly?
-
-TODO: references finder/autocomplete +references
-
-TODO: script to fzf search and then open in browser +render
-TODO: add droidsansmono font +render
-TODO: favicon +render
-TODO: syntax highlighting in ``` code +render
-TODO: [A] home (inbox) link +render
-TODO: pandoc filter to wrap expansions in classed div +render
-TODO: javascript in rendered version to allow expansion of links (makes post request) +render
-
-TODO: refresh content scripts (run on all) [and then refresh expansions]
-
-WAIT: [C] stats section in inbox +inbox
-TODO: add link to recent page in inbox +inbox
-TODO: add dates to recent page 
-
-TODO: fix standalone link pattern :: matching in refresh-links
-WAIT: tool to refresh everything in a file (don't do until :: fixed)
-
-TODO: only replace content of file with content script if it doesn't error out
-TODO: there are still update problems where if I update a note that is expanded elsewhere, the expansion doesn't update until that file is saved
-
-TODO: search fzf window that keeps opening itself/stays open, but selected things open in qutebrowser 
-
-TODO: if adding in maps is common enough, might be worth adding a script to go through creating note with content-script and adding the include line
-
-WAIT: command to send editor to browser and vice versa
-TODO: command to run a zettel script
-
-
+WAIT: search fzf window that keeps opening itself/stays open, but selected things open in qutebrowser +tool
+WAIT: refresh content scripts (run on all) [and then refresh expansions] +tool
+WAIT: command to send editor to browser and vice versa +tool
+WAIT: command to copy/make a copy of a note (automatically create link/backlink) +tool
+WAIT: tool to refresh everything in a file (don't do until :: fixed) +tool
 
 DONE: script to get text line TOC reference for filename
 DONE: zettelkasten initialization and config setup script
