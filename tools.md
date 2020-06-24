@@ -49,6 +49,9 @@ Searches given file to see if a (specifically) backlink exists to the other give
 $ kofi-check-backlink $current_file $destination_file
 no backlink
 ```
+## `kofi-clean-public`
+
+
 ## `kofi-create-backlink`
 
 Creates a backlink from arg2 to arg1 if one does not already exist.
@@ -77,7 +80,23 @@ $ kofi-create-expanded $current_file
 ```
 ## `kofi-create-map`
 
+Collects the set of notes and links from a given root node and outputs the graphviz dot representation of the collection.
 
+**Arguments:**
+1. The filename of the note to use as the "root" node of the graph.
+
+**Output:**
+Prints out the graphviz dot syntax notation.
+
+**Examples:**
+```
+$ kofi-create-map $current_file
+strict digraph G
+{
+"filename.md"[ label="title" URL="filename.html" ];
+...
+}
+```
 ## `kofi-create-note`
 
 
@@ -93,12 +112,33 @@ $ kofi-create-expanded $current_file
 ## `kofi-get-expansion`
 
 
-## `kofi-get-hidden`
-
-
 ## `kofi-get-link`
 
 
+## `kofi-get-property`
+
+Checks and returns the requested boolean metadata from a file.
+
+**Arguments:**
+1. the boolean property to check
+2. filename of the file
+
+**Output:**
+Either `true` if `$2: True` is in the file, or `false`"
+
+**Examples:**
+```bash
+$ kofi-get-property "hidden" $current_file 
+true
+```
+
+```python
+import sys
+import util
+filename = sys.argv[1]
+if util.run_shell("kofi-get-property", "public", filename) == "true":
+# do things
+```
 ## `kofi-get-title`
 
 
@@ -144,6 +184,9 @@ $ kofi-create-expanded $current_file
 ## `kofi-render-map`
 
 
+## `kofi-render-public`
+
+
 ## `kofi-render-sync-down`
 
 
@@ -166,6 +209,9 @@ $ kofi-create-expanded $current_file
 
 
 ## `kofi-set-meta`
+
+
+## `kofi-set-public`
 
 
 ## `kofi-set-recent`

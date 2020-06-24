@@ -1,5 +1,23 @@
 #!/bin/python3
 
+#> Collects the set of notes and links from a given root node and outputs the graphviz dot representation of the collection.
+#>
+#> **Arguments:**
+#> 1. The filename of the note to use as the "root" node of the graph.
+#>
+#> **Output:**
+#> Prints out the graphviz dot syntax notation.
+#>
+#> **Examples:**
+#> ```
+#> $ kofi-create-map $current_file
+#> strict digraph G
+#> {
+#> "filename.md"[ label="title" URL="filename.html" ];
+#> ...
+#> }
+#> ```
+
 import sys
 
 from kofi.map import Map
