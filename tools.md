@@ -226,6 +226,18 @@ if util.run_shell("kofi-get-property", "public", filename) == "true":
 ## `kofi-update-inbox`
 
 
+## `kofi-wrap-expansions`
+
+Finds all expansion syntaxes and wraps them in a specially classed div for styling. This creates a cached copy rather than altering original file. The class used will be ".expansion"
+
+**Arguments:**
+1. The filename of the note to fix
+2. The filename to save the fixed copy to
+
+**Examples:**
+```
+$ kofi-wrap-expansions $somenote cache/$somenote
+```
 ## `kofi-write-note-content`
 
 

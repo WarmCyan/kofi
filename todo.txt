@@ -1,9 +1,9 @@
+STRT: [A] pandoc filter to wrap expansions in classed div +render
 TODO: [A] do not propagate changes out if the original expandee note is newer than the the note currently being written
 TODO: [A] faster way to add link of current note to searching other note (a reverse backlink via search interface) +vim
 
 TODO: [B] add droidsansmono font +render
 TODO: [B] tool to collect array of notes based on tag algebra +tags +tool
-TODO: [B] pandoc filter to wrap expansions in classed div +render
 
 TODO: [C] stats section in inbox +inbox
 TODO: [C] add link to recent page in inbox +inbox
@@ -23,7 +23,7 @@ WAIT: if adding in maps is common enough, might be worth adding a script to go t
 STRT: bin script documentation +docs
 WAIT: list the tool areas/connections +docs
 
-TODO: turn selected text into title of new note +vim
+WAIT: turn selected text into title of new note +vim
 WAIT: :kofinew vim command (simply calls new-note) +vim
 WAIT: search-edit for inside of vim +vim
 WAIT: script/vim handler to reverse backlink (add primary link to target, and backlink in current) +vim

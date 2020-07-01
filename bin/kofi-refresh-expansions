@@ -8,7 +8,7 @@ import re
 from kofi.note import Note
 from kofi import util
 
-filename=sys.argv[1]
+filename = sys.argv[1]
 
 n = Note()
 n.load(filename)

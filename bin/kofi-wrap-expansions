@@ -1,0 +1,40 @@
+#!/bin/python3
+
+#> Finds all expansion syntaxes and wraps them in a specially classed div for styling. This creates a cached copy rather than altering original file. The class used will be ".expansion"
+#>
+#> **Arguments:**
+#> 1. The filename of the note to fix
+#> 2. The filename to save the fixed copy to
+#>
+#> **Examples:**
+#> ```
+#> $ kofi-wrap-expansions $somenote cache/$somenote
+#> ```
+
+import sys
+import re
+
+filename_in = sys.argv[1]
+filename_out = sys.argv[2]
+
+start_pattern = re.compile("^<!-- <([\w\d\s\-\_]*)\|(.+)> -->$")
+end_pattern = re.compile("^<!-- </([\w\d\s\-\_]*)\|(.+)> -->$")
+
+lines = []
+corrected_lines = []
+
+with open(filename_in, 'r') as infile:
+    lines = infile.readlines()
+
+for line in lines:
+    if start_pattern.match(line):
+        corrected_lines.append(line)
+        corrected_lines.append("<div class='expansion'>\n")
+    elif end_pattern.match(line):
+        corrected_lines.append("</div> <!-- /.expansion -->\n")
+        corrected_lines.append(line)
+    else:
+        corrected_lines.append(line)
+
+with open(filename_out, 'w') as outfile:
+    outfile.writelines(corrected_lines)

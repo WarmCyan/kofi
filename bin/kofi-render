@@ -13,4 +13,7 @@ kofi-run-script $filename "content"
 kofi-refresh-includes $filename
 
 
-pandoc -i $filename -o rendered/$outname --lua-filter=$BIN_DIR/kofi_res/links-to-html.lua --template=$BIN_DIR/kofi_res/assets/template.html --filter pandoc-include --filter=pandoc-citeproc --metadata bibliography=references.bib --metadata citation-style=$BIN_DIR/kofi_res/ieee.csl --metadata reference-section-title="References" --metadata link-citations="True"
+mkdir -p cache
+kofi-wrap-expansions $filename cache/$filename
+
+pandoc -i cache/$filename -o rendered/$outname --lua-filter=$BIN_DIR/kofi_res/links-to-html.lua --template=$BIN_DIR/kofi_res/assets/template.html --filter pandoc-include --filter=pandoc-citeproc --metadata bibliography=references.bib --metadata citation-style=$BIN_DIR/kofi_res/ieee.csl --metadata reference-section-title="References" --metadata link-citations="True"
