@@ -11,6 +11,7 @@ TODO: [C] create images and scripts directories on init
 
 TODO: [D] command to run a zettel script +tool
 TODO: [D] script to fzf search and then open in browser +render
+TODO: [D] extract the common regex patterns to util
 
 WAIT: add dates to recent page
 WAIT: fix standalone link pattern :: matching in refresh-links
