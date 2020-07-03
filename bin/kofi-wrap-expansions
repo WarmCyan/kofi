@@ -17,8 +17,8 @@ import re
 filename_in = sys.argv[1]
 filename_out = sys.argv[2]
 
-start_pattern = re.compile("^<!-- <([\w\d\s\-\_]*)\|(.+)> -->$")
-end_pattern = re.compile("^<!-- </([\w\d\s\-\_]*)\|(.+)> -->$")
+start_pattern = re.compile("^<!-- <([\w\d\s\-\_\,'\?\!]*)\|(.+)> -->$")
+end_pattern = re.compile("^<!-- </([\w\d\s\-\_\,'\?\!]*)\|(.+)> -->$")
 
 lines = []
 corrected_lines = []
