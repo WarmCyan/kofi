@@ -51,7 +51,7 @@ def to_tag_string(tags):
     """ Returns a +string +like +this """
     line = ""
     for tag in tags:
-        line += "+" + tag
+        line += "+" + tag + " "
 
     return line.strip()
 
