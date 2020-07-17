@@ -32,9 +32,13 @@ function KofiMakeBacklink()
 	let result = system("kofi-create-backlink " . cur_file  . " " . dest_file)[:-2]
 	if result == "backlink created"
 		echo "backlink created"
-		execute ":vsplit " . dest_file
-		execute "normal! gg/" . cur_file . "\<cr>"
-		nohlsearch
+		" NOTE: I'm commenting the below out because if the file is open it
+		" brings up a dialogue and really slows down the process. There are very
+		" few times I actually want to move the backlink from the bottom of the
+		" file so there's really not much point.
+		"execute ":vsplit " . dest_file
+		"execute "normal! gg/" . cur_file . "\<cr>"
+		"nohlsearch
 	else
 		echo "backlink exists"
 	endif

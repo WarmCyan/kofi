@@ -26,7 +26,6 @@ WAIT: list the tool areas/connections +docs
 WAIT: turn selected text into title of new note +vim
 WAIT: :kofinew vim command (simply calls new-note) +vim
 WAIT: search-edit for inside of vim +vim
-WAIT: script/vim handler to reverse backlink (add primary link to target, and backlink in current) +vim
 WAIT: vim thing to directly call get-link on md filename (expand) +vim
 WAIT: vim copy filename +vim
 WAIT: shortcut to move cursor to filename in next link +vim
@@ -102,3 +101,4 @@ DONE: [A] tag strings being deleted +tags
 DONE: [A] mobile css +render
 DONE: [A] references finder/autocomplete +references
 DONE: [A] pandoc filter to wrap expansions in classed div +render
+DONE: don't open file on add backlink
