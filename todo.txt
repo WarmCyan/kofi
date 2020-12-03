@@ -1,4 +1,4 @@
-TODO: [A] do not propagate changes out if the original expandee note is newer than the the note currently being written
+STRT: [A] do not propagate changes out if the original expandee note is newer than the the note currently being written
 TODO: [A] faster way to add link of current note to searching other note (a reverse backlink via search interface) +vim
 
 TODO: [B] add droidsansmono font +render
@@ -12,6 +12,9 @@ TODO: [C] create images and scripts directories on init
 TODO: [D] command to run a zettel script +tool
 TODO: [D] script to fzf search and then open in browser +render
 TODO: [D] extract the common regex patterns to util
+
+TODO: Prune empty notes
+TODO: Add folder for scripts to automatically run on any write etc
 
 WAIT: add dates to recent page
 WAIT: fix standalone link pattern :: matching in refresh-links
@@ -38,7 +41,7 @@ WAIT: add tag algebra options to mapping +tags
 
 WAIT: favicon +render
 WAIT: syntax highlighting in ``` code +render
-WAIT: javascript in rendered version to allow expansion of links (makes post request) +render
+WAIT: [B] javascript in rendered version to allow expansion of links (makes post request) +render
 WAIT: way to dilneate linking versus expansions versus inclusion in diagrams +render
 
 WAIT: search fzf window that keeps opening itself/stays open, but selected things open in qutebrowser +tool

@@ -50,6 +50,9 @@ for index, line in enumerate(lines):
             # skip it, no changes necessary
             pass
         else:
+
+            # TODO: check that the parent note of this one is not older than finished note  (see todolist)
+            
             finished_note.content = finished_note.content_building
             finished_note.data["date-updated"] = date.today().strftime("%Y-%m-%d")
             finished_note.write()
