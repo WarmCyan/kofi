@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# opens up fzf search for a file and then opens chosen file in nvim
+#> Opens up fzf search for a file and then opens chosen file in nvim
 
 cache_dir=$(kofi-active-dir)
 pushd $cache_dir > /dev/null

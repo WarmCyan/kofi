@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#> Opens up fzf search for a file and then opens chosen file in qutebrowser
+
+cache_dir=$(kofi-active-dir)
+pushd $cache_dir > /dev/null
+
+file=$(rg . | fzf --ansi --preview "echo {} | cut -d: -f1 | xargs bat --color=always --style=header,grid" | sed -E "s/([a-zA-Z0-9\-\_\/]*):.*/\1/")
+
+file=$(echo $file | sed -E "s/\.md/\.html/")
+echo $file
+nohup qutebrowser localhost:7890/$file --target window >/dev/null & 
+
+popd > /dev/null

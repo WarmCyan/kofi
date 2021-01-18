@@ -1,5 +1,7 @@
 TODO: [A] faster way to add link of current note to searching other note (a reverse backlink via search interface) +vim
 
+TODO: [B] javascript in rendered version to allow expansion of links (makes post request) +render
+TODO: [B] javascript show map
 TODO: [B] add droidsansmono font +render
 TODO: [B] tool to collect array of notes based on tag algebra +tags +tool
 
@@ -8,11 +10,12 @@ TODO: [C] add link to recent page in inbox +inbox
 TODO: [C] home (inbox) link +render
 TODO: [C] create images and scripts directories on init
 
-TODO: [D] script to fzf search and then open in browser +render
 TODO: [D] extract the common regex patterns to util
 
+TODO: syntax highlighting in ``` code +render
 TODO: Prune empty notes
 TODO: Add folder for scripts to automatically run on any write etc
+TODO: javascript copy filename link
 
 WAIT: add dates to recent page
 WAIT: fix standalone link pattern :: matching in refresh-links
@@ -38,8 +41,6 @@ WAIT: tag search script that compiles list of links to all results +tags
 WAIT: add tag algebra options to mapping +tags
 
 WAIT: favicon +render
-WAIT: syntax highlighting in ``` code +render
-WAIT: [B] javascript in rendered version to allow expansion of links (makes post request) +render
 WAIT: way to dilneate linking versus expansions versus inclusion in diagrams +render
 
 WAIT: search fzf window that keeps opening itself/stays open, but selected things open in qutebrowser +tool
@@ -47,6 +48,7 @@ WAIT: refresh content scripts (run on all) [and then refresh expansions] +tool
 WAIT: command to send editor to browser and vice versa +tool
 WAIT: command to copy/make a copy of a note (automatically create link/backlink) +tool
 WAIT: tool to refresh everything in a file (don't do until :: fixed) +tool
+WAIT: custom link resolution syntax
 
 
 DONE: script to get text line TOC reference for filename
@@ -104,5 +106,6 @@ DONE: [A] references finder/autocomplete +references
 DONE: [A] pandoc filter to wrap expansions in classed div +render
 DONE: don't open file on add backlink
 DONE: [D] command to run a zettel script +tool
+DONE: [D] script to fzf search and then open in browser +render
 
 CANC: [A] do not propagate changes out if the original expandee note is newer than the the note currently being written (NOTE: cannot do this since time is not recorded)
