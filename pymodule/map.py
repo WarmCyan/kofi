@@ -123,7 +123,7 @@ class Map:
             del self.links_from[a]
 
     def to_graphviz(self):
-        lines = ["strict digraph G", "{", 'bgcolor="transparent"']
+        lines = ["strict digraph G", "{", 'bgcolor="transparent"', 'overlap="false"']
 
         for item in self.filetitles:
             link = item[: item.rfind(".")] + ".html"
