@@ -9,7 +9,6 @@ TODO: [C] add link to recent page in inbox +inbox
 TODO: [C] home (inbox) link +render
 TODO: [C] create images and scripts directories on init
 
-TODO: [D] command to run a zettel script +tool
 TODO: [D] script to fzf search and then open in browser +render
 TODO: [D] extract the common regex patterns to util
 
@@ -105,3 +104,4 @@ DONE: [A] mobile css +render
 DONE: [A] references finder/autocomplete +references
 DONE: [A] pandoc filter to wrap expansions in classed div +render
 DONE: don't open file on add backlink
+DONE: [D] command to run a zettel script +tool

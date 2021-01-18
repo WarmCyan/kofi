@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#> Runs the specified zettelkasten script, only for scripts that don't require a specific file as input.
+#> If no script name is given, will list the scripts directory
+
+pushd $(kofi-active-dir) > /dev/null
+
+if [ $# -eq 0 ]; then
+	ls scripts
+else
+	kofi-log "kofi-script" "info" "Running script $1"
+	scripts/$1
+fi
+
+popd > /dev/null
