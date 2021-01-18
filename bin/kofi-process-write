@@ -2,7 +2,7 @@
 
 filename=$1
 
-kofi-propagate-expanded $filename
+kofi-propagate-expanded $filename # do I need to wait until after a map build?
 kofi-create-expanded $filename
 # TODO: refresh titles
 kofi-set-date "updated" $filename

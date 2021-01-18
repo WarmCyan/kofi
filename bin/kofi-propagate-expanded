@@ -52,6 +52,9 @@ for index, line in enumerate(lines):
         else:
 
             # TODO: check that the parent note of this one is not older than finished note  (see todolist)
+            # if date.strptime(note_stack[-1].data["date-updated"] > finished_note.data["date-updated"]
+            # NOTE: NO. checking datetime will not work, because only date is stored in date-updated, not time. 
+            # So wouldn't work if edited on same day
             
             finished_note.content = finished_note.content_building
             finished_note.data["date-updated"] = date.today().strftime("%Y-%m-%d")

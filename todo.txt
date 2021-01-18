@@ -1,4 +1,3 @@
-STRT: [A] do not propagate changes out if the original expandee note is newer than the the note currently being written
 TODO: [A] faster way to add link of current note to searching other note (a reverse backlink via search interface) +vim
 
 TODO: [B] add droidsansmono font +render
@@ -105,3 +104,5 @@ DONE: [A] references finder/autocomplete +references
 DONE: [A] pandoc filter to wrap expansions in classed div +render
 DONE: don't open file on add backlink
 DONE: [D] command to run a zettel script +tool
+
+CANC: [A] do not propagate changes out if the original expandee note is newer than the the note currently being written (NOTE: cannot do this since time is not recorded)

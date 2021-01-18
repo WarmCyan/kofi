@@ -60,9 +60,15 @@ def run_shell(*args):
     output = subprocess.run(args, stdout=subprocess.PIPE).stdout.decode('ascii').rstrip()
     return output
 
+
+def run_shell_silent_error(*args):
+    return run_shell(*args, "2> /dev/null")
+
+
 def run_raw_shell(*args):
     output = subprocess.run(args, stdout=subprocess.PIPE, shell=True).stdout.decode('ascii').rstrip()
     return output
+
 
 def log(msg, src, level="info"):
     run_shell("kofi-log", src, level, msg)
