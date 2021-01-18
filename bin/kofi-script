@@ -9,7 +9,7 @@ if [ $# -eq 0 ]; then
 	ls scripts
 else
 	kofi-log "kofi-script" "info" "Running script $1"
-	scripts/$1
+	scripts/$1 "${@:2}"
 fi
 
 popd > /dev/null
