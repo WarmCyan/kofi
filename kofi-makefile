@@ -1,7 +1,7 @@
 INPUTS := $(wildcard *.md)
 TARGETS := $(patsubst %.md,rendered/%.html,$(notdir $(INPUTS)))
 
-all: $(TARGETS) rendered/res .gitignore imagecopy public/res
+all: maps/0 maps/1 rendered/res rendered/maps/0 rendered/maps/1 .gitignore imagecopy public/res $(TARGETS) 
 	@kofi-log "makefile" "info" "Make complete"
 
 rendered/%.html: %.md | rendered
@@ -9,6 +9,28 @@ rendered/%.html: %.md | rendered
 
 rendered:
 	@mkdir -p rendered
+
+maps:
+	@mkdir -p maps
+
+maps/0: | maps
+	@mkdir -p maps/0
+maps/1: | maps
+	@mkdir -p maps/1
+#maps/2: | maps
+	#@mkdir -p maps/2
+
+rendered/maps: | rendered
+	@mkdir -p rendered/maps
+rendered/maps/0: | rendered/maps
+	@mkdir -p rendered/maps/0
+	@cp -r $(BIN_DIR)/kofi_res/assets/res rendered/maps/0/res
+rendered/maps/1: | rendered/maps
+	@mkdir -p rendered/maps/1
+	@cp -r $(BIN_DIR)/kofi_res/assets/res rendered/maps/1/res
+#rendered/maps/2: | rendered/maps
+	#@mkdir -p rendered/maps/2
+	#@cp -r $(BIN_DIR)/kofi_res/assets/res rendered/maps/2/res
 
 rendered/res: | rendered
 	@cp -r $(BIN_DIR)/kofi_res/assets/res rendered/res

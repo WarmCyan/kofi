@@ -4,8 +4,10 @@
 
 from kofi.map import Map
 
+# root = sys.argv[1]
+
 m = Map()
-m.construct_map(m)
+m.construct_map(root="inbox.md")
 result = m.to_graphviz()
 
 with open("testing.dot", 'w') as outfile:

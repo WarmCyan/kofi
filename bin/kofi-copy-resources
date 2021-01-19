@@ -1,0 +1,5 @@
+#!/bin/bash
+
+#> Copies over the makefile to the currently active zettelkasten
+
+cp $BIN_DIR/kofi_res/kofi-makefile $(kofi-active-dir)/makefile

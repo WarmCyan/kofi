@@ -1,0 +1,21 @@
+#!/bin/python3
+
+import sys
+
+from kofi.note import Note
+
+filename = sys.argv[1]
+
+n = Note()
+n.load(filename)
+
+
+# get content from stdin
+
+input_str = []
+for line in sys.stdin:
+    input_str.append(line)
+
+n.content = input_str
+
+n.write()

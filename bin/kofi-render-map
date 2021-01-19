@@ -1,4 +1,48 @@
 #!/bin/bash
 
-kofi-output-map
-cat testing.dot | graph-easy --as=boxart
+#kofi-output-map
+#cat testing.dot | graph-easy --as=boxart
+
+filename=$1
+outname=$(echo $filename | sed "s/\.md$/\.html/")
+
+# TODO: if filename is inbox.md make big one
+
+
+
+
+cache_dir=$(kofi-active-dir)
+
+
+pushd $cache_dir > /dev/null
+
+for num in 0 1 # 2 
+do
+	# check if file already exists
+	mapsizename=$cache_dir/maps/$num/$filename
+	mapsizename_out=$cache_dir/rendered/maps/$num/$outname
+	title=$(kofi-get-title $filename)
+	#desc=$(kofi-get-property "description" $filename) # TODO: this doesn't work
+
+	if [ ! -f "$mapsizename" ]; then
+		cp $BIN_DIR/kofi_res/template $mapsizename
+		kofi-set-date "created" $mapsizename
+		kofi-log "kofi-render-map" "info" "New note $mapsizename created"
+	fi
+	
+	kofi-set-date "updated" $mapsizename
+	kofi-set-meta "$mapsizename" "title" "$title"
+	#kofi-set-meta "$mapsizename" "description" "$desc"
+
+	# create the map
+	map_content=$(kofi-create-map $filename $num | neato -T svg | tail -n +4)
+	
+	# add to content
+	kofi-log "kofi-render-map" "info" "Rendering map $mapsizename_out"
+	echo $map_content | kofi-set-content $mapsizename
+	pandoc -i $mapsizename -o $mapsizename_out --template=$BIN_DIR/kofi_res/assets/template_map.html --metadata=outname:$outname
+	
+	#cp $cache_dir/$filename $cache_dir/maps/$num/$filename
+done
+
+popd > /dev/null

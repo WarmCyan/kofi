@@ -7,7 +7,6 @@ TODO: [B] tool to collect array of notes based on tag algebra +tags +tool
 
 TODO: [C] stats section in inbox +inbox
 TODO: [C] add link to recent page in inbox +inbox
-TODO: [C] home (inbox) link +render
 TODO: [C] create images and scripts directories on init
 
 TODO: [D] extract the common regex patterns to util
@@ -16,12 +15,15 @@ TODO: syntax highlighting in ``` code +render
 TODO: Prune empty notes
 TODO: Add folder for scripts to automatically run on any write etc
 TODO: javascript copy filename link
+TODO: kofi-attend (quick add notes) +tool
+TODO: map to sqlite
+TODO: ability to run script on all links on page
 
 WAIT: add dates to recent page
 WAIT: fix standalone link pattern :: matching in refresh-links
 WAIT: are multiple links between two files handled correctly?
-WAIT: only replace content of file with content script if it doesn't error out
 WAIT: there are still update problems where if I update a note that is expanded elsewhere, the expansion doesn't update until that file is saved
+WAIT: only replace content of file with content script if it doesn't error out
 WAIT: if adding in maps is common enough, might be worth adding a script to go through creating note with content-script and adding the include line
 
 STRT: bin script documentation +docs
@@ -106,6 +108,8 @@ DONE: [A] references finder/autocomplete +references
 DONE: [A] pandoc filter to wrap expansions in classed div +render
 DONE: don't open file on add backlink
 DONE: [D] command to run a zettel script +tool
+DONE: [A] maps for every page
+DONE: [C] home (inbox) link +render
 DONE: [D] script to fzf search and then open in browser +render
 
 CANC: [A] do not propagate changes out if the original expandee note is newer than the the note currently being written (NOTE: cannot do this since time is not recorded)

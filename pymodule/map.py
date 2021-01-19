@@ -16,23 +16,20 @@ class Map:
         # A -> [key:B]
         # key is a file, value is array of files that link _to_ this file
         self.links_from = {}
-        self.links_from = {}
-        self.links_from = {}
-        self.links_from = {}
-        self.links_from = {}
-        self.links_from = {}
-        self.links_from = {}
 
         self.filetitles = {}
 
         # any paths in here are unfound/dead, don't output them
         self.dead_paths = [] 
 
+        self.parsed_paths = []
+        self.root = None
+
     def construct_map(
-        self, root=None, ignore_recent=True, ignore_inbox=True, grab_titles=True
+        self, root=None, ignore_recent=True, ignore_inbox=True, grab_titles=True, depth=1
     ):
         # NOTE: use root = None to construct the map of _all_ notes
-        util.log(f"Constructing map from root {root}", "map.py")
+        util.log(f"Constructing map from root {root} with depth {depth}", "map.py")
         active_dir = util.run_shell("kofi-active-dir")
         os.chdir(active_dir)
 
@@ -40,31 +37,36 @@ class Map:
             for filepath in glob.iglob("*.md"):
                 if self.handle_path(filepath, ignore_recent, ignore_inbox, grab_titles):
                     # scan the file for links
-                    self.parse_file_links(filepath)
+                    self.parse_file_links(filepath, depth=depth)
         else:
-            self.handle_path(root)
+            self.root = root
+            self.parse_file_links(root, depth=depth, override_hidden=True)
+            
+            # self.handle_path(root)
 
-            with open(root, "r") as infile:
-                contents = infile.read()
+            # with open(root, "r") as infile:
+            #     contents = infile.read()
 
-                matches = re.findall(LINK_PATTERN, contents)
-                for match in matches:
-                    link = match
+            #     matches = re.findall(LINK_PATTERN, contents)
+            #     for match in matches:
+            #         link = match
 
-                    if self.handle_path(link, ignore_recent, ignore_inbox, grab_titles):
-                        self.create_link(root, link)
-                        # go one level deep
-                        self.parse_file_links(link)
+            #         if self.handle_path(link, ignore_recent, ignore_inbox, grab_titles):
+            #             self.create_link(root, link)
+            #             # go one level deep
+            #             self.parse_file_links(link)
+
 
     def handle_path(
-        self, filepath, ignore_recent=True, ignore_inbox=True, grab_titles=True
+        self, filepath, ignore_recent=True, ignore_inbox=True, grab_titles=True, override_hidden=False
     ):
         """ Go through the standard things that each file needs to go through """
-        if filepath == "recent.md" and ignore_recent:
+        #print(f"handling path for {filepath} {grab_titles}")
+        if filepath == "recent.md" and ignore_recent and not override_hidden:
             return False
-        if filepath == "inbox.md" and ignore_inbox:
+        if filepath == "inbox.md" and ignore_inbox and not override_hidden:
             return False
-        if util.run_shell_silent_error("kofi-get-property", "hidden", filepath) == "true":
+        if util.run_shell_silent_error("kofi-get-property", "hidden", filepath) == "true" and not override_hidden:
             return False
 
         if grab_titles:
@@ -79,7 +81,14 @@ class Map:
 
         return True
 
-    def parse_file_links(self, filepath, grab_titles=True):
+    # depth of -1 means recurse infinitely, since this isn't necessarily a DAG, probably a dumb idea
+    def parse_file_links(self, filepath, grab_titles=True, depth=1, override_hidden=False):
+        if filepath in self.parsed_paths:
+            return
+        #print(f"Parsing {filepath} at depth {depth}")
+        self.handle_path(filepath)
+        self.parsed_paths.append(filepath)
+                
         try:
             with open(filepath, "r") as infile:
                 contents = infile.read()
@@ -89,6 +98,9 @@ class Map:
                     link = match
                     if self.handle_path(link):
                         self.create_link(filepath, link)
+                        
+                        if depth > 0:
+                            self.parse_file_links(link, depth=depth-1, override_hidden=False)
         except FileNotFoundError:
             # skipping an unfound link
             util.log(f"Map skipping file could not find: {filepath}", "map.py", level="warn")
@@ -127,7 +139,10 @@ class Map:
 
         for item in self.filetitles:
             link = item[: item.rfind(".")] + ".html"
-            lines.append(f'"{item}" [ label="{self.filetitles[item]}" URL="{link}" ];')
+            if item == self.root:
+                lines.append(f'"{item}" [ style="filled" fillcolor="lightgray" label="{self.filetitles[item]}" URL="{link}" ];')
+            else:
+                lines.append(f'"{item}" [ label="{self.filetitles[item]}" URL="{link}" ];')
 
         already_handled = []
 

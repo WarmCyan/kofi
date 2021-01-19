@@ -23,9 +23,13 @@ import sys
 from kofi.map import Map
 
 root = sys.argv[1]
+if len(sys.argv) > 2:
+    depth = int(sys.argv[2])
+else:
+    depth = 1
 
 m = Map()
-m.construct_map(root=root)
+m.construct_map(root=root, depth=depth)
 result = m.to_graphviz()
 
 print(result)
