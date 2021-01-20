@@ -142,7 +142,7 @@ class Map:
             if item == self.root:
                 lines.append(f'"{item}" [ style="filled" fillcolor="lightgray" label="{self.filetitles[item]}" URL="{link}" ];')
             else:
-                lines.append(f'"{item}" [ label="{self.filetitles[item]}" URL="{link}" ];')
+                lines.append(f'"{item}" [ label="{self.filetitles[item]}" URL="{link}" fontsize="8.0" margin="0.01" width="0.1" height="0.1" ];')
 
         already_handled = []
 
@@ -154,10 +154,10 @@ class Map:
                     continue
 
                 if item in self.links_to[end]:
-                    lines.append(f'"{item}" -> "{end}"[dir=both]')
+                    lines.append(f'"{item}" -> "{end}"[dir=both arrowsize=.5]')
                     already_handled.append((end, item))
                 else:
-                    lines.append(f'"{item}" -> "{end}"')
+                    lines.append(f'"{item}" -> "{end}"[arrowsize=.5]')
 
         lines.append("}")
 

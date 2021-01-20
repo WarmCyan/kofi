@@ -18,6 +18,7 @@ TODO: javascript copy filename link
 TODO: kofi-attend (quick add notes) +tool
 TODO: map to sqlite
 TODO: ability to run script on all links on page
+TODO: include script syntax (where you specify a command include in the note content, and it acts as a mini content script
 
 WAIT: add dates to recent page
 WAIT: fix standalone link pattern :: matching in refresh-links
