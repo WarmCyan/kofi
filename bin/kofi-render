@@ -17,4 +17,4 @@ nohup kofi-render-map $filename 2> /dev/null &
 mkdir -p cache
 kofi-wrap-expansions $filename cache/$filename
 
-pandoc -i cache/$filename -o rendered/$outname --lua-filter=$BIN_DIR/kofi_res/links-to-html.lua --template=$BIN_DIR/kofi_res/assets/template.html --filter pandoc-include --citeproc --metadata bibliography=references.bib --metadata citation-style=$BIN_DIR/kofi_res/ieee.csl --metadata reference-section-title="References" --metadata link-citations="True" --metadata=outname:$outname
+pandoc -i cache/$filename -o rendered/$outname --lua-filter=$BIN_DIR/kofi_res/links-to-html.lua --template=$BIN_DIR/kofi_res/assets/template.html --citeproc --metadata bibliography=references.bib --metadata citation-style=$BIN_DIR/kofi_res/ieee.csl --metadata reference-section-title="References" --metadata link-citations="True" --metadata=outname:$outname
